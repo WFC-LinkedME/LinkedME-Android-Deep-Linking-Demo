@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:gravity="center"
+        >
+    <Button android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:text="@string/umeng_share"
+            android:id="@+id/umeng_share"/>
+    <Button android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:text="@string/umeng_shake"
+            android:id="@+id/umeng_shake"/>
+    <Button android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:text="@string/umeng_comment"
+            android:id="@+id/umeng_comment"/>
+</LinearLayout>
+

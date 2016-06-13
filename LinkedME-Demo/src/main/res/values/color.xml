@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name = "color_main_background">#0B2933</color> 
+  <color name = "color_main_introduction_tip">#245A6C</color>
+  <color name = "color_title">#FFFFEC</color>
+  <color name = "color_edit">#EDE0D4</color>
+  <color name = "color_content_view"> #FFF5E4</color>
+  <color name = "color_content_green">#35C782</color>
+  <color name = "color_features_green"> #2E9989</color>
+  <color name = "color_features_content"> #A6B9CA</color>
+
+  
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sinainfo"
+        android:onClick="onClick"
+        android:text="@string/umeng_socialize_text_sina_key"/>
+<Button
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/qqinfo"
+    android:onClick="onClick"
+    android:text="@string/umeng_socialize_text_qq_key"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wxinfo"
+        android:onClick="onClick"
+        android:text="@string/umeng_socialize_text_weixin_key"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/facebookinfo"
+        android:onClick="onClick"
+        android:text="@string/umeng_socialize_text_facebook_key"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/getfriend"
+        android:onClick="getFriendbyClick"
+        android:text="好友列表"/>
+</LinearLayout>

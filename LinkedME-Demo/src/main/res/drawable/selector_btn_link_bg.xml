@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    
+    <!-- 非触摸模式下获得焦点并单击 -->
+    <item android:drawable="@drawable/btn_link_press" android:state_enabled="true" android:state_focused="true" android:state_pressed="true"/>
+    <!-- 触摸模式下单击 -->
+    <item android:drawable="@drawable/btn_link_press" android:state_enabled="true" android:state_focused="false" android:state_pressed="true"/>
+    <!-- 选中 -->
+    <item android:drawable="@drawable/btn_link_press" android:state_enabled="true" android:state_selected="true"/>
+    <!-- 获得焦点 -->
+    <item android:drawable="@drawable/btn_link_press" android:state_enabled="true" android:state_focused="true"/>
+    
+    <item android:drawable="@drawable/btn_link_normal" android:state_enabled="true" android:state_pressed="false"/>
+    <!-- 禁用 -->
+    <item android:drawable="@drawable/btn_link_normal" android:state_enabled="false"/>
+
+</selector>

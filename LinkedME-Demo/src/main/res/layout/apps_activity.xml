@@ -1,0 +1,133 @@
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_background"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:title="@string/str_apps_name" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/list_divider_line" />
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/apps_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/footer"
+            android:padding="@dimen/distance_60"
+            app:columnCount="2"
+            app:rowCount="4">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/id_kr"
+                style="@style/apps_icon"
+                android:src="@drawable/kr"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/id_nuggets"
+                style="@style/apps_icon"
+                android:src="@drawable/nuggets"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/id_pocket"
+                style="@style/apps_icon"
+                android:src="@drawable/pocket"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/id_table"
+                style="@style/apps_icon"
+                android:src="@drawable/table"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/id_have"
+                style="@style/apps_icon"
+                android:src="@drawable/have"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/id_day"
+                style="@style/apps_icon"
+                android:src="@drawable/day"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/id_beijing"
+                style="@style/apps_icon"
+                android:src="@drawable/beijing"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/id_cattle"
+                style="@style/apps_icon"
+                android:src="@drawable/cattle"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+        </android.support.v7.widget.GridLayout>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/more_apps_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:padding="@dimen/com_facebook_share_button_padding_bottom"
+                android:text="@string/str_apps_more"
+                android:textColor="@color/color_title"
+                android:textSize="@dimen/text_size_12" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/introduction_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/com_facebook_share_button_padding_bottom"
+                android:text="@string/str_introduction_tip"
+                android:textColor="@color/color_main_introduction_tip"
+                android:textSize="@dimen/text_size_10" />
+        </android.support.v7.widget.LinearLayoutCompat>
+    </RelativeLayout>
+</android.support.v7.widget.LinearLayoutCompat>

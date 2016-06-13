@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ActionBar">
+        <attr name="title" format="string" localization="suggested" />
+    </declare-styleable>
+    <declare-styleable name="board_column">
+        <attr name="column" format="integer" localization="suggested" />
+    </declare-styleable>
+
+</resources>

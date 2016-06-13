@@ -1,0 +1,367 @@
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_background"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:title="@string/str_features_name" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/list_divider_line" />
+    </android.support.design.widget.AppBarLayout>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--  <ScrollView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <RelativeLayout
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content">
+
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:src="@drawable/one" />
+
+              <ImageView
+                  android:id="@+id/one_flag"
+                  android:layout_width="5dp"
+                  android:layout_height="@dimen/distance_20"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_60" />
+
+              <TextView
+                  android:id="@+id/one_title_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="55dp"
+                  android:layout_toRightOf="@id/one_flag"
+                  android:text="@string/str_introduction_new_three"
+                  android:textColor="@color/color_features_green"
+                  android:textSize="@dimen/text_size_18" />
+
+              <ImageView
+                  android:id="@+id/one_pic"
+                  android:layout_width="match_parent"
+                  android:layout_height="300dp"
+                  android:layout_below="@id/one_title_text"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_10"
+                  android:scaleType="fitCenter"
+                  android:src="@drawable/one_pic" />
+
+              <TextView
+                  android:id="@+id/one_pic_content"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/one_pic"
+
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:text="@string/str_features_one"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/one_pic_content"
+                  android:scaleType="fitCenter"
+                  android:src="@drawable/two" />
+
+              <ImageView
+                  android:id="@+id/two_flag"
+                  android:layout_width="5dp"
+                  android:layout_height="@dimen/distance_20"
+                  android:layout_below="@id/one_pic_content"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="150dp"
+                  android:scaleType="fitCenter" />
+
+              <TextView
+                  android:id="@+id/two_title_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/one_pic_content"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="145dp"
+                  android:layout_toRightOf="@id/two_flag"
+                  android:text="@string/str_introduction_new_fore"
+                  android:textColor="@color/color_features_green"
+                  android:textSize="@dimen/text_size_18" />
+
+              <ImageView
+                  android:id="@+id/two_pic"
+                  android:layout_width="fill_parent"
+                  android:layout_height="300dp"
+                  android:layout_below="@id/two_title_text"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_10"
+                  android:scaleType="fitCenter"
+                  android:src="@drawable/two_pic" />
+
+              <TextView
+                  android:id="@+id/two_pic_content"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/two_pic"
+
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:text="@string/str_features_two_one"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <TextView
+                  android:id="@+id/two_pic_content_two"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/two_pic_content"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_20"
+                  android:text="@string/str_features_two_two"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <TextView
+                  android:id="@+id/two_pic_content_three"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/two_pic_content_two"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_20"
+                  android:text="@string/str_features_two_three"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/two_pic_content_three"
+                  android:scaleType="fitCenter"
+                  android:src="@drawable/three" />
+
+              <ImageView
+                  android:id="@+id/three_flag"
+                  android:layout_width="5dp"
+                  android:layout_height="@dimen/distance_20"
+                  android:layout_below="@id/two_pic_content_three"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="150dp" />
+
+              <TextView
+                  android:id="@+id/three_title_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/two_pic_content_three"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="145dp"
+                  android:layout_toRightOf="@id/three_flag"
+                  android:text="@string/str_introduction_new_five"
+                  android:textColor="@color/color_features_green"
+                  android:textSize="@dimen/text_size_18" />
+
+              <ImageView
+                  android:id="@+id/three_pic"
+                  android:layout_width="fill_parent"
+                  android:layout_height="300dp"
+                  android:layout_below="@id/three_title_text"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_10"
+                  android:src="@drawable/three_pic" />
+
+              <TextView
+                  android:id="@+id/three_pic_content"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/three_pic"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:text="@string/str_features_three"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/three_pic_content"
+                  android:src="@drawable/four" />
+
+              <ImageView
+                  android:id="@+id/four_flag"
+                  android:layout_width="5dp"
+                  android:layout_height="@dimen/distance_20"
+                  android:layout_below="@id/three_pic_content"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="150dp" />
+
+              <TextView
+                  android:id="@+id/four_title_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/three_pic_content"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="145dp"
+                  android:layout_toRightOf="@id/four_flag"
+                  android:text="@string/str_introduction_new_six"
+                  android:textColor="@color/color_features_green"
+                  android:textSize="@dimen/text_size_18" />
+
+              <ImageView
+                  android:id="@+id/four_pic"
+                  android:layout_width="fill_parent"
+                  android:layout_height="300dp"
+                  android:layout_below="@id/four_title_text"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_10"
+                  android:src="@drawable/four_pic" />
+
+              <TextView
+                  android:id="@+id/four_pic_content"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/four_pic"
+
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:text="@string/str_features_four"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/four_pic_content"
+                  android:src="@drawable/five" />
+
+              <ImageView
+                  android:id="@+id/five_flag"
+                  android:layout_width="5dp"
+                  android:layout_height="@dimen/distance_20"
+                  android:layout_below="@id/four_pic_content"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="150dp" />
+
+              <TextView
+                  android:id="@+id/five_title_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/four_pic_content"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="145dp"
+                  android:layout_toRightOf="@id/five_flag"
+                  android:text="@string/str_introduction_new_seven"
+                  android:textColor="@color/color_features_green"
+                  android:textSize="@dimen/text_size_18" />
+
+              <ImageView
+                  android:id="@+id/five_pic"
+                  android:layout_width="fill_parent"
+                  android:layout_height="300dp"
+                  android:layout_below="@id/five_title_text"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_10"
+                  android:src="@drawable/five_pic" />
+
+              <TextView
+                  android:id="@+id/four_pic_content_one"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/five_pic"
+
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:text="@string/str_features_five_one"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <TextView
+                  android:id="@+id/four_pic_content_two"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/four_pic_content_one"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_20"
+                  android:text="@string/str_features_five_two"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/four_pic_content_two"
+                  android:src="@drawable/six" />
+
+              <ImageView
+                  android:id="@+id/six_flag"
+                  android:layout_width="5dp"
+                  android:layout_height="@dimen/distance_20"
+                  android:layout_below="@id/four_pic_content_two"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="150dp" />
+
+              <TextView
+                  android:id="@+id/six_title_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/four_pic_content_two"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginTop="145dp"
+                  android:layout_toRightOf="@id/six_flag"
+                  android:text="@string/str_introduction_new_eight"
+                  android:textColor="@color/color_features_green"
+                  android:textSize="@dimen/text_size_18" />
+
+              <TextView
+                  android:id="@+id/six_pic_content"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/six_title_text"
+                  android:layout_marginLeft="@dimen/distance_20"
+                  android:layout_marginRight="@dimen/distance_20"
+                  android:layout_marginTop="@dimen/distance_40"
+                  android:text="@string/str_features_six"
+                  android:textColor="@color/color_features_content"
+                  android:textSize="13sp" />
+
+              <TextView
+                  android:id="@+id/introduction_tip"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_alignParentBottom="true"
+                  android:layout_centerHorizontal="true"
+                  android:paddingBottom="@dimen/distance_20"
+                  android:text="@string/str_introduction_tip"
+                  android:textColor="@color/color_main_introduction_tip"
+                  android:textSize="@dimen/text_size_10" />
+          </RelativeLayout>
+
+      </ScrollView>-->
+</android.support.v7.widget.LinearLayoutCompat>

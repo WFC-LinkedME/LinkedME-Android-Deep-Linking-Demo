@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LinkedME</string>
+    <!--umeng share-->
+    <string name="umeng_share">分享</string>
+    <string name="umeng_auth">授权</string>
+    <string name="umeng_deleauth">清除对应授权</string>
+    <string name="umeng_shake">摇一摇</string>
+    <string name="umeng_comment">评论相关</string>
+    <string name="umeng_openshare">打开分享面板</string>
+    <string name="umeng_openshare_custom">打开自定义分享面板</string>
+    <string name="umeng_sharebutton_custom">自定义分享按钮</string>
+    <string name="umeng_share1">默认分享面板可编辑分享页</string>
+    <string name="umeng_share2">自定义分享面板可编辑分享页</string>
+    <string name="umeng_share3">单平台直接分享</string>
+    <string name="umeng_share4">多平台直接分享</string>
+    <string name="umeng_share5">默认分享面板可编辑分享页多平台</string>
+
+    <string name="umeng_shakeshotscreen">摇一摇截屏</string>
+    <string name="umeng_shakeshare">摇一摇分享</string>
+    <string name="umeng_registershake">注册摇一摇</string>
+
+    <string name="umeng_comment1">用户信息</string>
+    <string name="umeng_comment2">本地登陆</string>
+    <string name="umeng_comment3">本地授权</string>
+    <string name="umeng_comment4">好友功能</string>
+    <string name="umeng_comment5">评论功能</string>
+    <string name="umeng_comment6">注销</string>
+    <string name="umeng_comment7">解决事例</string>
+
+    <string name="umeng_nativequery">本地登陆信息查询</string>
+    <string name="umeng_loginsina">登陆新浪</string>
+    <string name="umeng_logoutsina">登出新浪</string>
+    <string name="umeng_loginqq">登陆QQ</string>
+    <string name="umeng_logoutqq">登出QQ</string>
+    <string name="umeng_loginqzone">登陆QQ空间</string>
+    <string name="umeng_logoutzone">登出QQ空间</string>
+    <string name="umeng_customlogin">自定义登陆</string>
+
+    <string name="umeng_addfriend">添加好友</string>
+    <string name="umeng_getfriendlist">获取好友列表</string>
+
+    <string name="umeng_commentmodular">评论模块</string>
+    <string name="umeng_getcommentlist">获取评论列表</string>
+    <string name="umeng_sendcomment">发出评论</string>
+
+    <!--<string name="action_settings">设置</string>-->
+    <string name="actionbar_activity_not_found">Failed to open intent...</string>
+    <string name="share_by_weixin">微信分享</string>
+    <string name="share_by_qq">QQ分享</string>
+    <string name="share_by_yixin">易信分享</string>
+    <string name="shake_share">注册摇一摇截图（分享）</string>
+    <string name="shake_openshare">注册摇一摇（打开分享面板）</string>
+    <string name="shake_scrshot">注册摇一摇（截图）</string>
+    <string name="take_scrshot">直接截图</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="stop">停止</string>
+    <string name="quit">退出</string>
+    <string name="video_start_time">00:00</string>
+    <string name="goto_video">摇一摇视频截图Activity</string>
+    <string name="goto_game">游戏Activity</string>
+    <string name="goto_common">普通Activity</string>
+    <string name="video">VideoActivity</string>
+    <string name="game">GameActivity</string>
+    <string name="common">CommonActivity</string>
+    <string name="back">返回</string>
+    <string name="goto_facebook">添加Facebook分享</string>
+    <string name="fb_login">Facebook登录</string>
+    <string name="fb_logout">Facebook注销</string>
+    <string name="fb_share">Facebook分享</string>
+    <string name="laiwang_share">来往分享</string>
+    <string name="instagram_share">Instagram分享</string>
+    <string name="pocket_share">Pocket分享</string>
+    <string name="linkedin_share">LinkedIn分享</string>
+    <string name="foursquare_share">FourSquare分享</string>
+    <string name="ynote_share">有道云笔记分享</string>
+    <string name="evernote_share">印象笔记分享</string>
+    <string name="pinterest_share">Pinterest分享</string>
+    <string name="custom_platform_share">自定义平台分享</string>
+    <string name="login_sina">登录（新浪微博）</string>
+    <string name="logout_sina">注销登录（新浪微博）</string>
+    <string name="login_qq">登录（QQ）</string>
+    <string name="logout_qq">注销登录（QQ）</string>
+    <string name="login_qzone">登录（QQ空间）</string>
+    <string name="logout_qzone">注销登录（QQ空间）</string>
+    <string name="whatsapp_share">whatsapp分享</string>
+    <string name="line_share">line分享</string>
+    <string name="tumblr_share">tumblr分享</string>
+    <string name="kakao_share">Kakao Talk分享</string>
+    <string name="flickr_share">flickr分享</string>
+    <string name="fb_app_id">567261760019884</string>
+    <string name="photo_post">Photo Post</string>
+    <string name="success">Success</string>
+    <string name="successfully_posted_post">Successfully posted \'%1$s\'.\nPost ID: %2$s</string>
+    <string name="error">Error</string>
+    <string name="status_update">Updating Facebook status at </string>
+    <string name="ok">OK</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
+    <string name="facebook_app_id">487692214752558</string>
+    <string name="perm">需要权限:</string>
+
+
+    <!--LinkedME-->
+
+    <string name="str_introduction_tip">Copyright@2014-2015 LinkedME 北京微方程科技有限公司</string>
+    <string name="str_apps_name">应用方</string>
+    <string name="str_features_name">产品特点</string>
+    <string name="str_demo_name">DEMO</string>
+    <string name="str_introduction_name">产品简介</string>
+    <string name="str_apps_more">更多应用集成中...</string>
+    <string name="str_introduction_one">Linked ME</string>
+    <string name="str_introduction_two">是跨平台链接的解决方案</string>
+    <string name="str_introduction_three">针对应用内所有页面定义唯一链接</string>
+    <string name="str_introduction_fore">使得App不再是信息的孤岛！</string>
+    <string name="str_introduction_six">是企业级的免费链接服务</string>
+    <string name="str_introduction_seven">移动互联网企业按照文档集成SDK</string>
+    <string name="str_introduction_eight">即可实现LinkedME技术特性！</string>
+    <string name="str_introduction_new_one">LinkedME产品的</string>
+    <string name="str_introduction_new_two">技术服务主要分为如下几个方面:</string>
+    <string name="str_introduction_new_three">跨平台深度链接</string>
+    <string name="str_introduction_new_fore">深度分享</string>
+    <string name="str_introduction_new_five">App互联</string>
+    <string name="str_introduction_new_six">自定义及智能化</string>
+    <string name="str_introduction_new_seven">可视化数据分析</string>
+    <string name="str_introduction_new_eight">企业级服务器</string>
+       <string name="str_features_one"> 深度链接将打破移动互联网的信息孤岛，使得应用与应用之间互联！中国的应用数量已经达到千万级别，但几乎所有的APP都没有实现深度链接，LinkedME以深度链接技术为基础为企业提供一些列的产品服务，帮助企业增加运营的效益。
+                LinkedME的深度链接机制的重要特性是跨平台，该特性主要体现在三个方面，第一，跨开发平台，支持Android，iOS，Hybrid App；第二，跨不同终端，支持Phone，Pad，Pc等等；第三，跨应用商店，不因应用商店下载，而丢掉链接，
+                支持应用宝，豌豆荚，360手机助手，百度手机助手，小米商店等等；</string>
+
+    <string name="str_features_two_one">所有的APP都实现了分享组件，但分享的链接不是移动应用具体页面内容的链接，而是针对移动应用内容开发的H5页面链接。</string>
+      <string name="str_features_two_two">当用户把APP内容分享到微信，微博，短信，邮箱，知乎，豆瓣，QQ及QQ空间时，其他用户不用下载APP就能查看APP的内容，确实给用户带了较好的体验，但是用户想直接去APP内容查看，几乎所有的APP都不支持！
+                LinkedME针对已集成SDK的APP，为APP的所有页面统一分配唯一的链接，当用户在APP的外部点击该链接时，LinkedME检测用户是否安装该链接对应的APP，已安装直接打开APP具体页面，未安装跳转应用商店，下载安装后依然打开具体页面。</string>
+    <string name="str_features_two_three">LinkedME提高了APP的下载量和阅读量，也为用户提供了极致的浏览体验。</string>
+
+      <string name="str_features_three">信息在于互联，知识在于联想！当下互联网的业务越来越体现出垂直化，细分化，但用户的需求是多样化，致使App之间互通互联是必然之路。当下的App互联主要是问题是本身App没有实现深度链接技术，导致无法互联，及时实现深度链接技术但有没有标准，
+                导致App互联也为企业增加了很大开发负担。LinkedME为所有集成SDK的App，统一分配唯一链接提供一系列的衍生服务，致使App的互联互联不再困难！</string>
+
+      <string name="str_features_four">LinkedME提供自定义，智能化特点。自定义是指企业用户针对具体的运营活动生成LinkedME链接，由该链接可以清晰分析运营活动的效果，比如生成LinkedME时，支持feature，tags，channel等等属性字段。智能化是指LinkedME的所有链接
+                能够自动检测是桌面用户，手机用户，平板电脑用户点击链接，从而LinkedME针对不同的用户应为引导用户做出不同的动作。</string>
+
+      <string name="str_features_five_one">LinkedME为所有集成SDK的APP，统一分配唯一链接，并记录链接的所有动态信息，比如点击次数、点击时间、打开或安装APP、流量渠道等等，从而为企业用户提供了友好的可视化数据分析控制后台，方便企业查看并分析所有的链接数据，
+                提高企业的运营效率，增加公司效益。比如，企业用户能够一目了然的查看到某个时间段App的打开和安装数量，以及来自那些渠道，比如微博，微信，还是自定于渠道。</string>
+    <string name="str_features_five_two">实现App间互联的数据的同步更新，跟踪等等数据分析服务。</string>
+      <string name="str_features_six">LinkedME提供企业级，免费的链接服务，主要特性体现在以下几个方面：第一，快速集成，LinkedME提供的iOS、Android、Hybrid的SDK非常轻量，提供的API也非常简单，企业开发人员十几分即可熟悉API功能；
+                第二，LinkedME始终支持Android，iOS，Hybrid APP技术的更新，并及时更新LinkedME所有技术服务，比如iOS9增加了很多特性，LinkedME将逐步依次实现。
+                第三，稳定可靠，LinkedME的后台经过巨大的压力测试，支持每日过亿访问量，与此同时，对企业所有链接数据提供备灾方案；
+                第四，隐私保护，LinkedME针对企业的所有链接数据绝对安全保护；</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>

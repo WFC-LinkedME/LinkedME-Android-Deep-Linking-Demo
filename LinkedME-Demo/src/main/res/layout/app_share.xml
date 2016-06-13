@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center">
+    <!--every platform has its name in sdk @string,for example sina=umeng_socialize_text_sina_key-->
+  <Button
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/app_open_share"
+      android:text="@string/umeng_openshare"
+      android:onClick="onClick"></Button>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/app_open_share_custom"
+        android:text="@string/umeng_openshare_custom"
+        android:onClick="onClick"></Button>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="是否开启编辑页"
+        android:id="@+id/checkBox_close_editor"
+        android:checked="true"
+        />
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1,2">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+`
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_sina_key"
+                android:id="@+id/app_share_sina"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_douban_key"
+                android:id="@+id/app_share_douban"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_weixin_key"
+                android:id="@+id/app_share_wx"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_weixin_circle_key"
+                android:id="@+id/app_share_wx_circle"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_alipay_key"
+                android:id="@+id/app_share_alipay"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_laiwang_key"
+                android:id="@+id/app_share_laiwang"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_qq_key"
+                android:id="@+id/app_share_qq"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_qq_zone_key"
+                android:id="@+id/app_share_qzone"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_yixin_key"
+                android:id="@+id/app_share_yixin"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_yixincircle_key"
+                android:id="@+id/app_share_yixin_circle"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="email"
+                android:id="@+id/app_share_email"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_sms"
+                android:id="@+id/app_share_sms"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_facebook_key"
+                android:id="@+id/app_share_facebook"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_twitter_key"
+                android:id="@+id/app_share_twitter"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_evernote_key"
+                android:id="@+id/app_share_evernote"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_ydnote_key"
+                android:id="@+id/app_share_ynote"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_linkedin_key"
+                android:id="@+id/app_share_linkedin"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_line_key"
+                android:id="@+id/app_share_line"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_kakao_key"
+                android:id="@+id/app_share_kakao"
+                android:onClick="onClick"
+                android:layout_column="1"
+
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_tencent_key"
+                android:id="@+id/app_share_tencent"
+                android:onClick="onClick"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/umeng_socialize_text_wenxin_fav"
+                android:id="@+id/app_share_weixin_fav_btn"
+                android:onClick="onClick"
+                android:layout_column="1" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
+</ScrollView>
