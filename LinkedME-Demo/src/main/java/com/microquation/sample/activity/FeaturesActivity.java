@@ -71,20 +71,16 @@ public class FeaturesActivity extends AppCompatActivity {
                 case R.id.menu_more:
                     /**创建深度链接*/
                     LinkProperties properties = new LinkProperties();
-                    properties.setChannel("weixin");
-                    properties.setFeature("share");
+                    properties.setChannel("");  //微信、微博、QQ
+                    properties.setFeature("Share");
                     properties.addTag("LinkedME");
-                    properties.addTag("Demo");
-                    properties.setStage("Test");
-                    properties.addControlParameter("$desktop_url", "http://www.linkedme.cc");
-                    properties.addControlParameter("$ios_url", "http://www.linkeme.cc");
-                    properties.setIOSKeyControlParameter("Features");
-                    properties.setAndroidPathControlParameter("Features");
+                    properties.addTag("Feature");
+                    properties.setStage("Live");
+                    properties.addControlParameter("LinkedME", "Demo");
+                    properties.addControlParameter("View", "Feature");
                     LMUniversalObject universalObject = new LMUniversalObject();
-                    universalObject.setTitle("Features");
-                    universalObject.setContentDescription("LinkedME测试内容");
-                    universalObject.addContentMetadata("View", "Features");
-                    universalObject.addContentMetadata("LinkedME", "Demo");
+                    universalObject.setTitle("Feature");
+
                     // Async Link creation example
                     universalObject.generateShortUrl(FeaturesActivity.this, properties, new LMLinkCreateListener() {
                         @Override

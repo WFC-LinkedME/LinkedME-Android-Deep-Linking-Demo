@@ -107,22 +107,18 @@ public class AppsActivity extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
                 case R.id.menu_more:
+
                     /**创建深度链接*/
                     LinkProperties properties = new LinkProperties();
-                    properties.setChannel("Wechat");
-                    properties.setFeature("sharing");
+                    properties.setChannel("");  //微信、微博、QQ
+                    properties.setFeature("Share");
                     properties.addTag("LinkedME");
-                    properties.addTag("test");
-                    properties.setStage("Test");
-                    properties.addControlParameter("$desktop_url", "http://www.linkedme.cc");
-                    properties.addControlParameter("$ios_url", "http://www.linkeme.cc");
-                    properties.setIOSKeyControlParameter("Partners");
-                    properties.setAndroidPathControlParameter("Partners");
+                    properties.addTag("Partner");
+                    properties.setStage("Live");
+                    properties.addControlParameter("LinkedME", "Demo");
+                    properties.addControlParameter("View", "Partner");
                     LMUniversalObject universalObject = new LMUniversalObject();
-                    universalObject.setTitle("Partners");
-                    universalObject.setContentDescription("LinkedME测试内容");
-                    universalObject.addContentMetadata("View", "Partners");
-                    universalObject.addContentMetadata("LinkedME", "Demo");
+                    universalObject.setTitle("Partner");
 
                     // Async Link creation example
                     universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreateListener() {

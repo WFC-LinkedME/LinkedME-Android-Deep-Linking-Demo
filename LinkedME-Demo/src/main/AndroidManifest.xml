@@ -43,9 +43,9 @@
 
 
         <!--Test and Key-->
-        <meta-data android:name="linkedme.sdk.TestMode" android:value="true" />
-        <meta-data android:name="linkedme.sdk.key" android:value="838212907f1a18565f85a63ed2508774" />
-        <meta-data android:name="linkedme.sdk.key.test" android:value="838212907f1a18565f85a63ed2508774" />
+        <meta-data android:name="linkedme.sdk.TestMode" android:value="false" />
+        <meta-data android:name="linkedme.sdk.key" android:value="linkedme_live_7e289a2484f4368dbafbd1e5c7d06903" />
+        <meta-data android:name="linkedme.sdk.key.test" android:value="linkedme_test_7e289a2484f4368dbafbd1e5c7d06903" />
         <activity android:name=".activity.AppsActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.MainActivity" />
             <meta-data android:name="linkedme.sdk.auto_link_path" android:value="apps" />

@@ -126,39 +126,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             linkedMe = LinkedME.getTestInstance(this);
         }
-//        linkedMe.initSession(new LMUniversalReferralInitListener() {
-//            @Override
-//            public void onInitFinished(LMUniversalObject lmUniversalObject, LinkProperties linkProperties, LMError error) {
-//                if (lmUniversalObject != null) {
-//                    Log.i("LinkedME-Demo", "title " + lmUniversalObject.getTitle());
-//                    Log.i("LinkedME-Demo", "CanonicalIdentifier " + lmUniversalObject.getCanonicalIdentifier());
-//                    Log.i("ContentMetaData", "metadata " + lmUniversalObject.getMetadata());
-//
-//                    //router
-//                    HashMap<String, String> hashMap = lmUniversalObject.getMetadata();
-//                    String view = hashMap.get("View").toString();
-//                    if (view.equals("Partners")) {
-//                        Intent intent = AppsActivity.newIntent(MainActivity.this);
-//                        startActivity(intent);
-//                    } else if (view.equals("Features")) {
-//                        startActivity(FeaturesActivity.newIntent(MainActivity.this));
-//                    } else if (view.equals("Demo")) {
-//                        startActivity(DemoActivity.newIntent(MainActivity.this));
-//                    } else if (view.equals("Summary")) {
-//                        startActivity(SummaryActivity.newIntent(MainActivity.this));
-//                    }
-//                }
-//
-//                if (linkProperties != null) {
-//                    Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
-//                    Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
-//                }
-//            }
-//        }, this.getIntent().getData(), this);
-
-//        if (listener != null){
-//            listener.reset();
-//        }
         linkedMe.initSession(listener, this.getIntent().getData(), this);
 
     }
@@ -172,16 +139,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("LinkedME-Demo", "LinkedME init complete!");
                 if (lmUniversalObject != null) {
                     Log.i("LinkedME-Demo", "title " + lmUniversalObject.getTitle());
-                    Log.i("LinkedME-Demo", "CanonicalIdentifier " + lmUniversalObject.getCanonicalIdentifier());
+                    Log.i("LinkedME-Demo", "control " + linkProperties.getControlParams());
                     Log.i("ContentMetaData", "metadata " + lmUniversalObject.getMetadata());
 
                     //router
-                    HashMap<String, String> hashMap = lmUniversalObject.getMetadata();
+                    HashMap<String, String> hashMap = linkProperties.getControlParams();
                     String view = hashMap.get("View").toString();
-                    if (view.equals("Partners")) {
+                    if (view.equals("Partner")) {
                         Intent intent = AppsActivity.newIntent(MainActivity.this);
                         startActivity(intent);
-                    } else if (view.equals("Features")) {
+                    } else if (view.equals("Feature")) {
                         startActivity(FeaturesActivity.newIntent(MainActivity.this));
                     } else if (view.equals("Demo")) {
                         startActivity(DemoActivity.newIntent(MainActivity.this));
@@ -203,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         if (sessionMode != SESSION_MANAGEMENT_MODE.AUTO) {
+
             linkedMe.closeSession(() -> {
             });
         }

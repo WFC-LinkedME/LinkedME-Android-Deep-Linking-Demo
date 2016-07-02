@@ -88,20 +88,15 @@ public class DemoActivity extends AppCompatActivity {
         demo_link_button.setOnClickListener(v -> {
             /**创建深度链接*/
             LinkProperties properties = new LinkProperties();
-            properties.setChannel("weixin");
-            properties.setFeature("share");
+            properties.setChannel("");  //微信、微博、QQ
+            properties.setFeature("Share");
             properties.addTag("LinkedME");
             properties.addTag("Demo");
-            properties.setStage("Test");
-            properties.addControlParameter("$desktop_url", "http://www.linkedme.cc");
-            properties.addControlParameter("$ios_url", "http://www.linkeme.cc");
-            properties.setIOSKeyControlParameter("Demo");
-            properties.setAndroidPathControlParameter("Demo");
+            properties.setStage("Live");
+            properties.addControlParameter("LinkedME", "Demo");
+            properties.addControlParameter("View", "Demo");
             LMUniversalObject universalObject = new LMUniversalObject();
             universalObject.setTitle("Demo");
-            universalObject.setContentDescription("LinkedME测试内容");
-            universalObject.addContentMetadata("View", "Demo");
-            universalObject.addContentMetadata("LinkedME", "Demo");
 
             // Async Link creation example
             universalObject.generateShortUrl(DemoActivity.this, properties, new LMLinkCreateListener() {
