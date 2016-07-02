@@ -36,8 +36,8 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:host="lkme.cc" android:pathPrefix="/lbC" android:scheme="https" />
-                <data android:host="lkme.cc" android:pathPrefix="/lbC" android:scheme="http" />
+                <data android:host="lkme.cc" android:pathPrefix="/AfC" android:scheme="https" />
+                <data android:host="lkme.cc" android:pathPrefix="/AfC" android:scheme="http" />
             </intent-filter>
         </activity>
 
