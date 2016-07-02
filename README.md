@@ -1,170 +1,263 @@
-# LinkedME Android SDK
+# LinkedME-Android-Deep-Linking-Demo
 
-## `minSdkVersion` >= 8
 
-## 使用说明
+##1 LinkedME-Android-Deep-Linking-Demo工程简述
 
-### SDK安装说明
+### 1.1 功能描述 
 
-+ 复制`LinkedME-Android-SDK.aar`到项目的`libs`目录下
-+ 修改构建脚本`build.gradle`内容
-    + 修改`repositories`配置
-    ```
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
+LinkedME-Android-Deep-Linking-Demo工程，主要功能有4个方面：
+
+功能名称 | 含义 
+:------------: | :------------- 
+应用方 | LinkedME的使用方和合作伙伴
+产品简介 | LinkedME产品的简述
+产品详述 | LinkedME产品的详细描述
+Demo实例 | 主要演示生成深度链接
+
+### 1.2 代码描述
+
+LinkedME-Android-Deep-Linking-Demo工程，代码描述如下表格所示：
+
+文件名称 | 含义 
+:------------: | :------------- 
+LinkedME-Demo | 集成LinkedME-Android-Deep-Linking-SDK的Demo示例工程
+libs | 该文件夹下面放着LinkedME-Android-Deep-Linking-SDK-V1.0.1.jar包
+com.wfc.linkedme | 该包下面放着LinkedME-Demo的Activity内容
+umeng | 标示社会化分享出来的链接是携带深度链接的H5页面链接
+AndroidManifest.xml | 注意AndroidManifest文件的配置文件
+
+![LinkedME-Android-Deep-Linking-Demo工程详解](http://o8nck2exg.bkt.clouddn.com/LinkedME-Android-Deep-Linking.png)
+
+
+##2 注册用户
+注册用户，并登陆系统
+
+![image](http://o8fx2z8ev.bkt.clouddn.com/lkme/register1.png)
+
+##3 创建App
+###3.1 创建app
+
+![image](http://o8fx2z8ev.bkt.clouddn.com/lkme/create_app11.png)
+![image](http://o8fx2z8ev.bkt.clouddn.com/lkme/create_app22.png)
+
+
+###3.2 设置App
+
+登录官网网站，进入“设置”->“链接”标签下面，设置Android深度链接相关的参数。
+
+项目 | 选项 | 含义
+:------------ | :-------------: | ------------
+URI scheme | 必填  | App的URI Scheme
+Package Name | 必填  | App包名
+应用商店地址 | 必填  | 如果多个应用商店的地址，请用“分号”填写；例如：
+开启AppLinks | 选填  | 填写SHA256验证码
+
+- 如果没有Android应用，Directed URL框里填写深度链接默认跳转地址；
+	
+	![image](http://o8fx2z8ev.bkt.clouddn.com/lkme/set_app_android11.png)
+	
+- 如果有Android应用，勾选有Android应用的框，并填写App的URI Scheme(不要加“://”)和Package Name；如果App在应用商店上线了，请勾选“应用商店”，并填写App在应用商店的地址；
+	
+	![image](http://o8fx2z8ev.bkt.clouddn.com/lkme/set_app_android2.png)
+	
+- 如果App没有在应用商店上线，请勾选“自定义”，并填写App的apk文件的下载地址；
+	
+	![image](http://o8fx2z8ev.bkt.clouddn.com/lkme/set_app_android3.png)
+	
+- 如果App支持App Links，请勾选“开启App Links”,并填写SHA256验证码。
+	
+	![image](http://o8fx2z8ev.bkt.clouddn.com/lkme/set_app_android4.png)
+
+
+##4 代码集成
+
+###4.1 解析深度链接
+
+###4.1.1 设置 linkedme_key
+
+如果你之前已经在LinkedME官网注册了应用，并获取到了 linkedme_key`linkedme_key`，可以继续使用它.
+
+如果你尚未在LinkedME官网注册开发者账号，需要先注册，注册之后登录你的账号，点击添加新应用，填写完应用基本信息后，将进入"设置"页面，此页面即可得到 `linkedme_key`。
+
+###4.1.2 配置AndroidManifest
+
+####4.1.2.1 修改 application及继承类
+
+修改applincation中activity的类，该类需要集成LMApp，Demo中的示例代码如下：
+
+```xml
+
+<application
+	android:name=".activity.LinkedMEDemoApp"
+	android:configChanges="orientation|keyboard"
+	android:allowBackup="true"
+	android:icon="@drawable/icon1"
+	android:label="@string/app_name"
+	android:theme="@style/AppTheme">
+```   
+LinkedMEDemoApp类需要集成LMApp；示例代码如下所示：
+
+```java
+public class LinkedMEDemoApp extends LMApp {
+	@Override
+	protected void attachBaseContext(Context base) {
+		super.attachBaseContext(base);
+		MultiDex.install(this);
     }
-    ```
-    + 新增`dependencies`配置
-    ```
-    dependencies {
-        compile(name: 'LinkedMe-Android-SDK', ext: 'aar')
-    }
-    ```
-+ 修改Android程序配置文件`AndroidManifest.xml`内容
-    + 新增`LinkedME`key
-    ```
-    <!-- LinkedME生产通道 -->
-    <meta-data
-                android:name="linkedme.sdk.key"
-                android:value="46ed6c4bbdbb5c59ed0dd835f7c8868a" />
-    <!-- LinkedME测试通道 -->            
-    <meta-data
-                android:name="linkedme.sdk.key.test"
-                android:value="46ed6c4bbdbb5c59ed0dd835f7c8868a" />
-    ```
-    + 配置Debug模式
-    ```
-     <meta-data
-                android:name="linkedme.sdk.TestMode"
-                android:value="false" />
-    ```
-    + 确认`LinkedME`SDK权限
-    ```
-     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-     <uses-permission android:name="android.permission.INTERNET" />
-    ```
-+ 修改`Application`文件
-    + 确认`AndroidManifest.xml`中使用的`Application`,如没有自定义可是直接使用`com.microquation.linkedme.android.referral.LMApp`
-    + 如使用自定义`Application`,请于`onCreate()`中调用`LinkedME#initialize`完成初始化
-    ```
-    @Override
-        public void onCreate() {
-            super.onCreate();
-            LinkedME.initialize(this);
-        }
-    ```
-+ 以上步骤完成后,SDK将可以正确工作.如果熟悉gradle及相关配置可执行修改
 
-### SDK使用说明
- 
-+ 初始化LinkedME核心组件
-    + 于入口`Activity`对应`onStart()`或者`onResume()`中调用`LinkedME.getInstance()`即可完成初始化工作.如使用低于`API 14`版本请使用`LinkedME.getInstance(Context)`(详细内容请移步`AutoSession`相关章节,使用说明章节将仅以`API 14`以上版本介绍`LinkedME`主要功能)
-    + 为入口`Activity`配置相应的`IntentFilter`,并配置`launchMode`为`singleTask`
-    ```
-                <intent-filter>
-                    <action android:name="android.intent.action.VIEW" />
-                    <category android:name="android.intent.category.DEFAULT" />
-                    <category android:name="android.intent.category.BROWSABLE" />
-                    <data android:scheme="lkmedemo" />
-                </intent-filter>
-    ```
-    
-    ```
-                <intent-filter>
-                    <action android:name="android.intent.action.VIEW" />
-    
-                    <category android:name="android.intent.category.DEFAULT" />
-                    <category android:name="android.intent.category.BROWSABLE" />
-    
-                    <data
-                        android:host="lkme.cc"
-                        android:pathPrefix="/obC"
-                        android:scheme="https" />
-                    <data
-                        android:host="lkme.cc"
-                        android:pathPrefix="/obC"
-                        android:scheme="http" />
-                </intent-filter>
-    
-    
-                <intent-filter android:autoVerify="true">
-                    <action android:name="android.intent.action.VIEW" />
-    
-                    <category android:name="android.intent.category.DEFAULT" />
-                    <category android:name="android.intent.category.BROWSABLE" />
-    
-                    <data
-                        android:host="lkme.cc"
-                        android:pathPrefix="/obC"
-                        android:scheme="https" />
-                    <data
-                        android:host="lkme.cc"
-                        android:pathPrefix="/obC"
-                        android:scheme="http" />
-    
-    
-                </intent-filter>
-    ```
+	@Override
+	public void onCreate() {
+		super.onCreate();
+	}
+}
+```
 
-+ 生成深度链接
-    + 构造`LinkProperties` `LKMEUniversalObject`对象,并填写对应参数
-    ```
-    LinkProperties properties = new LinkProperties();
-    //请根据需要配置参数
-    properties.setIOSKeyControlParameter("apps");//ios自动路由匹配参数(非常重要)
-    properties.setAndroidPathControlParameter("apps");//android自动路由匹配参数(非常重要)
-    ```
-    ```
-    LKMEUniversalObject universalObject = new LKMEUniversalObject();
-    //请根据需要配置参数
-    ```
-    + 调用`LKMEUniversalObject.generateShortUrl`生成深度链接,可以在`LKMELinkCreateListener`获得对应的深度链接
-    ```
-    universalObject.generateShortUrl(this, properties, (url, linkedMeError) -> {
-            if (linkedMeError == null) {
-                Log.info("LinkeME",url);
-            }
-    });
-    ```
+####4.1.2.2 添加 linkedme_key
 
-+ 获取深度链接参数
-    + 为对应的`Activity`配置自动路由参数
-    ```
-    <activity android:name=".activity.AppsActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".activity.MainActivity" />
-        <!-- 此处即为上一章节提到的AndroidPathControl参数 -->
-        <meta-data
-            android:name="linkedme.sdk.auto_link_path"
-            android:value="apps" />
-    </activity>
-    ```
-    + 于对应的`Activity`调用`LinkedME.initSession(LKMEUniversalReferralInitListener,Uri, Activity)`,并注意修改`newIntent()`方法
-    ```
-    @Override
-    public void onStart() {
-    super.onStart();
-    linkedMe.initSession((linkedMeUniversalObject, linkProperties, linkedMeError) -> {
-             //此处你将可以获得生成深度链接时配置的LinkProperties和LKMEUniversalObject对象
-             //注意使用前判断LinkedMEError是否存在
-            }, getIntent().getData(), this);
-    }
-    ```
-    ```
-    @Override
-    public void onNewIntent(Intent intent) {
-            this.setIntent(intent);
-    }
-    ```
+```xml
 
-### SDK发布
-目前直接运行`sh ./gradlew clean makeJar`即可,打包位于根目录下libs中
-### SDK尚未完成的内容
+<!--Test and Key-->
+	<meta-data android:name="linkedme.sdk.TestMode" android:value="true" />
+	<meta-data android:name="linkedme.sdk.key" 		android:value="linkedme_live_838212907f1a18565f85a63ed2508774" />
+	<meta-data android:name="linkedme.sdk.key.test" android:value="linkedme_test_838212907f1a18565f85a63ed2508774" />
+```
+####4.1.2.3 添加 activity
 
-+ 参数校验
-    详见`com.microquation.linkedme.android.network.RemoteInterface.addCommonParams`
-+ 测试通道接入
-    详见`com.microquation.linkedme.android.referral.PrefHelper.getAPIBaseUrl`
+```xml
+
+<activity
+	android:name=".activity.MainActivity"
+	android:configChanges="orientation|keyboard"
+	android:screenOrientation="portrait"
+	android:label="@string/app_name">
+	
+	<intent-filter>
+		<action android:name="android.intent.action.MAIN" />
+		<category android:name="android.intent.category.LAUNCHER" />
+	</intent-filter>
+
+	<!-- URI Scheme方式 -->
+	<intent-filter>
+		<data android:scheme="linkedmedemo" />
+		<action android:name="android.intent.action.VIEW" />
+		<category android:name="android.intent.category.DEFAULT" />		<category android:name="android.intent.category.BROWSABLE" />
+	</intent-filter>
+
+	<!-- APP Links方式 -->
+	<intent-filter android:autoVerify="true">
+		<action android:name="android.intent.action.VIEW" />
+		<category android:name="android.intent.category.DEFAULT" />
+		<category android:name="android.intent.category.BROWSABLE" />
+		<data android:host="lkme.cc" android:pathPrefix="/lbC" android:scheme="https" />
+		<data android:host="lkme.cc" android:pathPrefix="/lbC" android:scheme="http" />
+	</intent-filter>
+	
+</activity>
+```
+
+####4.1.2.4 添加访问权限
+```xml
+ 	<!--需要开启的权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+```
+
+
+###4.1.2 获取深度链接跳转参数
+
+在MainAcivity中的onStart()中添加如下代码，初始化LinkedME实例。
+
+```java
+
+SimpleInitListener listener = new SimpleInitListener() {
+	@Override
+	public void onSimpleInitFinished(LMUniversalObject lmUniversalObject, LinkProperties linkProperties, LMError error) {
+	if (error != null) {
+		Log.i("LinkedME-Demo", "LinkedME init failed. " + error.getMessage());
+	} else {
+		Log.i("LinkedME-Demo", "LinkedME init complete!");
+		if (lmUniversalObject != null) {
+			Log.i("LinkedME-Demo", "title " + lmUniversalObject.getTitle());
+			Log.i("LinkedME-Demo", "CanonicalIdentifier " + lmUniversalObject.getCanonicalIdentifier());
+			Log.i("ContentMetaData", "metadata " + lmUniversalObject.getMetadata());
+
+			//获取深度链接跳转参数后，跳转到具体的页面；
+			HashMap<String, String> hashMap = lmUniversalObject.getMetadata();
+			String view = hashMap.get("View").toString();
+			if (view.equals("Partners")) {
+				Intent intent = AppsActivity.newIntent(MainActivity.this);
+				startActivity(intent);
+			} else if (view.equals("Features")) {
+				startActivity(FeaturesActivity.newIntent(MainActivity.this));
+			} else if (view.equals("Demo")) {
+				startActivity(DemoActivity.newIntent(MainActivity.this));
+			} else if (view.equals("Summary")) {
+				startActivity(SummaryActivity.newIntent(MainActivity.this));
+			}
+		}
+
+		if (linkProperties != null) {
+			Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
+			Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
+		}
+	}
+}
+};
+```
+    
+
+###4.2 生成深度链接
+```java
+
+/**创建深度链接*/
+LinkProperties properties = new LinkProperties();
+properties.setChannel("Wechat");
+properties.setFeature("sharing");
+properties.addTag("LinkedME");
+properties.addTag("test");
+properties.setStage("Test");
+properties.addControlParameter("$desktop_url", "http://www.linkedme.cc");
+properties.addControlParameter("$ios_url", "http://www.linkeme.cc");
+properties.setIOSKeyControlParameter("Partners");
+properties.setAndroidPathControlParameter("Partners");
+LMUniversalObject universalObject = new LMUniversalObject();
+universalObject.setTitle("Partners");
+universalObject.setContentDescription("LinkedME测试内容");
+universalObject.addContentMetadata("View", "Partners");
+universalObject.addContentMetadata("LinkedME", "Demo");
+	
+//异步或同步方式生成深度链接
+universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreateListener() {
+	@Override
+	public void onLinkCreate(String url, LMError error) {
+	//该url是LinkedME生成的深度链接，在此使用该深度链接即可；
+	}
+});
+```
+
+
+
+###4.3 设置Debug模式
+在AndroidManifest.xml文件中，进行相应的配置；
+
+```xml
+<!--Test and Key-->
+	<meta-data android:name="linkedme.sdk.TestMode" android:value="true" />
+	<meta-data android:name="linkedme.sdk.key" 		android:value="linkedme_live_838212907f1a18565f85a63ed2508774" />
+	<meta-data android:name="linkedme.sdk.key.test" android:value="linkedme_test_838212907f1a18565f85a63ed2508774" />
+```
+
