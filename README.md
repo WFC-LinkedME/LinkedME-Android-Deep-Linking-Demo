@@ -249,7 +249,37 @@ universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreate
 });
 ```
 
+``` java
+ /**创建深度链接*/
+                    LinkProperties properties = new LinkProperties();
+                    properties.setChannel("");  //微信、微博、QQ
+                    properties.setFeature("Share");
+                    properties.addTag("LinkedME");
+                    properties.addTag("Partner");
+                    properties.setStage("Live");
+                    properties.addControlParameter("LinkedME", "Demo");
+                    properties.addControlParameter("View", "Partner");
+                    LMUniversalObject universalObject = new LMUniversalObject();
+                    universalObject.setTitle("Partner");
 
+                    // Async Link creation example
+                    universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreateListener() {
+                        @Override
+                        public void onLinkCreate(String url, LMError error) {
+                            UMImage image = new UMImage(AppsActivity.this, "http://api.linkedme.cc/homepage2.jpg");
+                            /**友盟分享化分享，分享的链接不单单是H5链接，而是携带深度链接的H5链接*/
+                            new ShareAction(AppsActivity.this).setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.SINA)
+                                    .withText("LinkedME产品已经被众多移动应用垂青, 比如Uber、滴滴、36Kr、小饭桌、每天、道口贷等等, 更多应用正在集成中...;")
+                                    .withTitle("LinkedME应用方")
+                                    .withMedia(image)
+                                    .withTargetUrl(LIVE_H5_URL + url)
+                                    .setCallback(umShareListener)
+                                    .open();
+                        }
+                    });
+                    
+
+ ```         
 
 ###4.3 设置Debug模式
 在AndroidManifest.xml文件中，进行相应的配置；
