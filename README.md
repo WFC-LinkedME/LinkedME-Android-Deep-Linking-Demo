@@ -291,6 +291,27 @@ universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreate
     };
 
 ```
+``` java
+@Override
+public void onStart() {
+        super.onStart();
+
+        //初始化LinkedME实例
+        linkedME = LinkedME.getInstance(this);
+        //初始化Session，获取Intent内容及跳转参数
+        linkedME.initSession(simpleInitListener, this.getIntent().getData(), this);
+}
+
+@Override
+    public void onStop() {
+        super.onStop();
+        linkedME.closeSession(new LMReferralCloseListener() {
+            @Override
+            public void onCloseFinish() {
+            }
+        });
+}
+```
 
 
 
