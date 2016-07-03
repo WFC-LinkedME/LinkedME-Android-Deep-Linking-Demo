@@ -27,11 +27,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.microquation.linkedme.android.LinkedME;
+import com.microquation.linkedme.android.callback.LMReferralCloseListener;
+import com.microquation.linkedme.android.callback.LMSimpleInitListener;
 import com.microquation.linkedme.android.indexing.LMUniversalObject;
 import com.microquation.linkedme.android.referral.LMError;
 import com.microquation.linkedme.android.util.LinkProperties;
 import com.microquation.sample.R;
-import com.microquation.linkedme.android.callback.SimpleInitListener;
 
 import java.util.HashMap;
 
@@ -56,18 +57,8 @@ import java.util.HashMap;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private LinkedME linkedMe;
+    private LinkedME linkedME;
 
-    public enum SESSION_MANAGEMENT_MODE {
-        AUTO,    /* LinkedMe SDK Manages the session for you. For this mode minimum API level should
-                 be 14 or above. Make sure to instantiate {@link LMApp} class to use this mode. */
-
-        MANUAL  /* You are responsible for managing the session. Need to call initialiseSession() and
-                closeSession() on activity onStart() and onStop() respectively. */
-    }
-
-    /* Current mode for the Session Management */
-    public static SESSION_MANAGEMENT_MODE sessionMode = SESSION_MANAGEMENT_MODE.AUTO;
     private AppCompatImageButton id_apps, id_features, id_demo, id_intro;
 
     @Override
@@ -120,27 +111,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        if (sessionMode != SESSION_MANAGEMENT_MODE.AUTO) {
-            linkedMe = LinkedME.getInstance(this);
-        } else {
-            linkedMe = LinkedME.getTestInstance(this);
-        }
-        linkedMe.initSession(listener, this.getIntent().getData(), this);
+        //初始化LinkedME实例
+        linkedME = LinkedME.getInstance(this);
+        //初始化Session，获取Intent内容及跳转参数
+        linkedME.initSession(simpleInitListener, this.getIntent().getData(), this);
 
     }
 
-    SimpleInitListener listener = new SimpleInitListener() {
+    //解析深度链获取跳转参数，开发者自己实现参数相对应的页面内容。
+    LMSimpleInitListener simpleInitListener = new LMSimpleInitListener() {
         @Override
         public void onSimpleInitFinished(LMUniversalObject lmUniversalObject, LinkProperties linkProperties, LMError error) {
             if (error != null) {
-                Log.i("LinkedME-Demo", "LinkedME init failed. " + error.getMessage());
+                Log.i("LinkedME-Demo", "LinkedME初始化失败. " + error.getMessage());
             } else {
-                Log.i("LinkedME-Demo", "LinkedME init complete!");
-                if (lmUniversalObject != null) {
-                    Log.i("LinkedME-Demo", "title " + lmUniversalObject.getTitle());
-                    Log.i("LinkedME-Demo", "control " + linkProperties.getControlParams());
-                    Log.i("ContentMetaData", "metadata " + lmUniversalObject.getMetadata());
+
+                //LinkedME SDK初始化成功，获取跳转参数，具体跳转参数在LinkProperties中，和创建深度链接时设置的参数相同；
+                Log.i("LinkedME-Demo", "LinkedME初始化完成");
+
+                if (linkProperties != null) {
+                    Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
+                    Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
 
                     //router
                     HashMap<String, String> hashMap = linkProperties.getControlParams();
@@ -157,23 +148,23 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                if (linkProperties != null) {
-                    Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
-                    Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
+                if (lmUniversalObject != null) {
+                    Log.i("LinkedME-Demo", "title " + lmUniversalObject.getTitle());
+                    Log.i("LinkedME-Demo", "control " + linkProperties.getControlParams());
+                    Log.i("ContentMetaData", "metadata " + lmUniversalObject.getMetadata());
                 }
             }
         }
     };
 
-
     @Override
     public void onStop() {
         super.onStop();
-        if (sessionMode != SESSION_MANAGEMENT_MODE.AUTO) {
-
-            linkedMe.closeSession(() -> {
-            });
-        }
+        linkedME.closeSession(new LMReferralCloseListener() {
+            @Override
+            public void onCloseFinish() {
+            }
+        });
     }
 
 
