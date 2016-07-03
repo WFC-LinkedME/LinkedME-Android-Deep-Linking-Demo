@@ -249,6 +249,47 @@ universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreate
 });
 ```
 
+```java
+
+//解析深度链获取跳转参数，开发者自己实现参数相对应的页面内容。
+    LMSimpleInitListener simpleInitListener = new LMSimpleInitListener() {
+        @Override
+        public void onSimpleInitFinished(LMUniversalObject lmUniversalObject, LinkProperties linkProperties, LMError error) {
+            if (error != null) {
+                Log.i("LinkedME-Demo", "LinkedME init failed. " + error.getMessage());
+            } else {
+                Log.i("LinkedME-Demo", "LinkedME init complete!");
+                if (lmUniversalObject != null) {
+                    Log.i("LinkedME-Demo", "title " + lmUniversalObject.getTitle());
+                    Log.i("LinkedME-Demo", "control " + linkProperties.getControlParams());
+                    Log.i("ContentMetaData", "metadata " + lmUniversalObject.getMetadata());
+
+                    //router
+                    HashMap<String, String> hashMap = linkProperties.getControlParams();
+                    String view = hashMap.get("View").toString();
+                    if (view.equals("Partner")) {
+                        Intent intent = AppsActivity.newIntent(MainActivity.this);
+                        startActivity(intent);
+                    } else if (view.equals("Feature")) {
+                        startActivity(FeaturesActivity.newIntent(MainActivity.this));
+                    } else if (view.equals("Demo")) {
+                        startActivity(DemoActivity.newIntent(MainActivity.this));
+                    } else if (view.equals("Summary")) {
+                        startActivity(SummaryActivity.newIntent(MainActivity.this));
+                    }
+                }
+
+                if (linkProperties != null) {
+                    Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
+                    Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
+                }
+            }
+        }
+    };
+
+```
+
+
 
 
 ###4.3 设置Debug模式
