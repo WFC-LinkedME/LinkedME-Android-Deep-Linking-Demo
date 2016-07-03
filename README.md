@@ -256,13 +256,15 @@ universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreate
         @Override
         public void onSimpleInitFinished(LMUniversalObject lmUniversalObject, LinkProperties linkProperties, LMError error) {
             if (error != null) {
-                Log.i("LinkedME-Demo", "LinkedME init failed. " + error.getMessage());
+                Log.i("LinkedME-Demo", "LinkedME初始化失败. " + error.getMessage());
             } else {
-                Log.i("LinkedME-Demo", "LinkedME init complete!");
-                if (lmUniversalObject != null) {
-                    Log.i("LinkedME-Demo", "title " + lmUniversalObject.getTitle());
-                    Log.i("LinkedME-Demo", "control " + linkProperties.getControlParams());
-                    Log.i("ContentMetaData", "metadata " + lmUniversalObject.getMetadata());
+
+                //LinkedME SDK初始化成功，获取跳转参数，具体跳转参数在LinkProperties中，和创建深度链接时设置的参数相同；
+                Log.i("LinkedME-Demo", "LinkedME初始化完成");
+
+                if (linkProperties != null) {
+                    Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
+                    Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
 
                     //router
                     HashMap<String, String> hashMap = linkProperties.getControlParams();
@@ -279,9 +281,10 @@ universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreate
                     }
                 }
 
-                if (linkProperties != null) {
-                    Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
-                    Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
+                if (lmUniversalObject != null) {
+                    Log.i("LinkedME-Demo", "title " + lmUniversalObject.getTitle());
+                    Log.i("LinkedME-Demo", "control " + linkProperties.getControlParams());
+                    Log.i("ContentMetaData", "metadata " + lmUniversalObject.getMetadata());
                 }
             }
         }
