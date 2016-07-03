@@ -27,79 +27,86 @@
     <RelativeLayout
         android:id="@+id/apps_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <android.support.v7.widget.GridLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/footer"
-            android:padding="@dimen/distance_60"
-            app:columnCount="2"
-            app:rowCount="4">
+            >
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/id_kr"
-                style="@style/apps_icon"
-                android:src="@drawable/kr"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/id_nuggets"
-                style="@style/apps_icon"
-                android:src="@drawable/nuggets"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/id_pocket"
-                style="@style/apps_icon"
-                android:src="@drawable/pocket"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill" />
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/id_kr"
+                        style="@style/apps_icon_integration"
+                        android:src="@drawable/kr" />
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/id_table"
-                style="@style/apps_icon"
-                android:src="@drawable/table"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/id_nuggets"
+                        style="@style/apps_icon_integration"
+                        android:src="@drawable/nuggets" />
+                </android.support.v7.widget.LinearLayoutCompat>
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/id_have"
-                style="@style/apps_icon"
-                android:src="@drawable/have"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/id_day"
-                style="@style/apps_icon"
-                android:src="@drawable/day"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/id_pocket"
+                        style="@style/apps_icon_integration"
+                        android:src="@drawable/pocket" />
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/id_beijing"
-                style="@style/apps_icon"
-                android:src="@drawable/beijing"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/id_table"
+                        style="@style/apps_icon_integration"
+                        android:src="@drawable/table" />
+                </android.support.v7.widget.LinearLayoutCompat>
 
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/id_cattle"
-                style="@style/apps_icon"
-                android:src="@drawable/cattle"
-                app:layout_columnWeight="1"
-                app:layout_gravity="fill"
-                app:layout_rowWeight="1" />
-        </android.support.v7.widget.GridLayout>
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/id_have"
+                        style="@style/apps_icon_integration"
+                        android:src="@drawable/have" />
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/id_day"
+                        style="@style/apps_icon_integration"
+                        android:src="@drawable/day" />
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/id_beijing"
+                        style="@style/apps_icon_integration"
+                        android:src="@drawable/beijing" />
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/id_cattle"
+                        style="@style/apps_icon_integration"
+                        android:src="@drawable/cattle" />
+                </android.support.v7.widget.LinearLayoutCompat>
+            </android.support.v7.widget.LinearLayoutCompat>
+        </ScrollView>
 
         <android.support.v7.widget.LinearLayoutCompat
             android:id="@+id/footer"
