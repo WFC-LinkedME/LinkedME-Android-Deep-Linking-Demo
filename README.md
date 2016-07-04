@@ -280,27 +280,6 @@ universalObject.generateShortUrl(AppsActivity.this, properties, new LMLinkCreate
                     
 
  ```         
-  ``` java
- @Override
-    public void onCreate() {
-        super.onCreate();
-
-        if (!LMUtil.isTestModeEnabled(this)) {
-            LinkedME.getInstance(this);
-        } else {
-            LinkedME.getTestInstance(this);
-        }
-//        LinkedME.initialize(this);
-
-        //友盟社会化分享
-        {
-            //微信
-            PlatformConfig.setWeixin("wx6fc47eae6872f04c", "d4624c36b6795d1d99dcf0547af5443d");
-            //新浪微博
-            PlatformConfig.setSinaWeibo("2929366075", "b84a93ea3d2b89f04559eddb5663c809");
-        }
-    }
-  ```
 ###4.3 设置Debug模式
 在AndroidManifest.xml文件中，进行相应的配置；
 
