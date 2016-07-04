@@ -46,24 +46,6 @@
         <meta-data android:name="linkedme.sdk.key" android:value="linkedme_live_7e289a2484f4368dbafbd1e5c7d06903" />
         <meta-data android:name="linkedme.sdk.key.test" android:value="linkedme_test_7e289a2484f4368dbafbd1e5c7d06903" />
         <activity android:name=".activity.AppsActivity">
-
-            <!-- URI Scheme方式 -->
-            <intent-filter>
-                <data android:scheme="linkedmedemo" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
-
-            <!-- APP Links方式 -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:host="lkme.cc" android:pathPrefix="/AfC" android:scheme="https" />
-                <data android:host="lkme.cc" android:pathPrefix="/AfC" android:scheme="http" />
-            </intent-filter>
-
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activity.MainActivity" />
             <meta-data android:name="linkedme.sdk.auto_link_path" android:value="apps" />
         </activity>
