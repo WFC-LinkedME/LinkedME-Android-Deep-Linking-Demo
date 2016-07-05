@@ -19,13 +19,14 @@
  */
 
 package com.microquation.sample.activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageButton;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+
 import com.microquation.linkedme.android.LinkedME;
 import com.microquation.linkedme.android.callback.LMReferralCloseListener;
 import com.microquation.linkedme.android.callback.LMSimpleInitListener;
@@ -37,88 +38,91 @@ import com.microquation.sample.R;
 import java.util.HashMap;
 
 /**
- * Welcome to the world of Android Market licensing. We're so glad to have you
- * onboard!
+ * <p>此Activity是为了演示当从深度链接跳转到intent-filter对应的Activity时,
+ * 如何通过深度链接获取自定义参数,以便后续操作的实现(例如:跳转到指定的分享页面)</p>
  * <p>
- * The first thing you need to do is get your hands on your public key.
- * Update the BASE64_PUBLIC_KEY constant below with your encoded public key,
- * which you can find on the
- * <a href="http://market.android.com/publish/editProfile">Edit Profile</a>
- * page of the Market publisher site.
- * <p>
- * Log in with the same account on your Cupcake (1.5) or higher phone or
- * your FroYo (2.2) emulator with the Google add-ons installed. Change the
- * test response on the Edit Profile page, press Save, and see how this
- * application responds when you check your license.
- * <p>
- * After you get this sample running, peruse the
- * <a href="http://developer.android.com/guide/publishing/licensing.html">
- * licensing documentation.</a>
+ * <p>集成步骤:</p>
+ * <p>1、在onStart()方法中获取LinkedME对象并调用 initSession(LMUniversalReferralInitListener callback, @NonNull Uri data, Activity activity)设置session进行监听</p>
+ * <p>2、在onStop()方法中调用closeSession关闭当前session</p>
  */
 public class MainActivity extends AppCompatActivity {
 
     private LinkedME linkedME;
-
-    private AppCompatImageButton id_apps, id_features, id_demo, id_intro;
+    /**
+     * 应用方
+     */
+    private AppCompatImageButton id_apps;
+    /**
+     * 产品特点
+     */
+    private AppCompatImageButton id_features;
+    /**
+     * DEMO
+     */
+    private AppCompatImageButton id_demo;
+    /**
+     * 简介
+     */
+    private AppCompatImageButton id_intro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         findViews();
-        //router();
     }
 
-//    modify the cookie
+    /**
+     * 组件初始化及事件响应
+     */
     private void findViews() {
         id_apps = (AppCompatImageButton) findViewById(R.id.id_apps);
         id_features = (AppCompatImageButton) findViewById(R.id.id_features);
         id_demo = (AppCompatImageButton) findViewById(R.id.id_demo);
         id_intro = (AppCompatImageButton) findViewById(R.id.id_intro);
-        id_apps.setOnClickListener(v -> startActivity(AppsActivity.newIntent(this)));
-        id_features.setOnClickListener(v -> startActivity(FeaturesActivity.newIntent(this)));
-        id_demo.setOnClickListener(v -> startActivity(DemoActivity.newIntent(this)));
-        id_intro.setOnClickListener(v -> startActivity(SummaryActivity.newIntent(this)));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
+        id_apps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AppsActivity.class));
+            }
+        });
+        id_features.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, FeaturesActivity.class));
+            }
+        });
+        id_demo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, DemoActivity.class));
+            }
+        });
+        id_intro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SummaryActivity.class));
+            }
+        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
         //初始化LinkedME实例
+
         linkedME = LinkedME.getInstance(this);
         //初始化Session，获取Intent内容及跳转参数
         linkedME.initSession(simpleInitListener, this.getIntent().getData(), this);
-
     }
 
-    //解析深度链获取跳转参数，开发者自己实现参数相对应的页面内容。
+    /**
+     * <p>解析深度链获取跳转参数，开发者自己实现参数相对应的页面内容</p>
+     * <p>通过LinkProperties对象调用getControlParams方法获取自定义参数的HashMap对象,
+     * 通过创建的自定义key获取相应的值,用于数据处理。</p>
+     */
+    //。
     LMSimpleInitListener simpleInitListener = new LMSimpleInitListener() {
         @Override
         public void onSimpleInitFinished(LMUniversalObject lmUniversalObject, LinkProperties linkProperties, LMError error) {
@@ -133,18 +137,20 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
                     Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
 
-                    //router
+                    //获取自定义参数封装成的hashmap对象
                     HashMap<String, String> hashMap = linkProperties.getControlParams();
-                    String view = hashMap.get("View").toString();
-                    if (view.equals("Partner")) {
-                        Intent intent = AppsActivity.newIntent(MainActivity.this);
-                        startActivity(intent);
-                    } else if (view.equals("Feature")) {
-                        startActivity(FeaturesActivity.newIntent(MainActivity.this));
-                    } else if (view.equals("Demo")) {
-                        startActivity(DemoActivity.newIntent(MainActivity.this));
-                    } else if (view.equals("Summary")) {
-                        startActivity(SummaryActivity.newIntent(MainActivity.this));
+                    //获取传入的参数
+                    String view = hashMap.get("View");
+                    if (view != null) {
+                        if (view.equals("Partner")) {
+                            startActivity(new Intent(MainActivity.this, AppsActivity.class));
+                        } else if (view.equals("Feature")) {
+                            startActivity(new Intent(MainActivity.this, FeaturesActivity.class));
+                        } else if (view.equals("Demo")) {
+                            startActivity(new Intent(MainActivity.this, DemoActivity.class));
+                        } else if (view.equals("Summary")) {
+                            startActivity(new Intent(MainActivity.this, SummaryActivity.class));
+                        }
                     }
                 }
 
@@ -157,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+
     @Override
     public void onStop() {
         super.onStop();
@@ -166,6 +173,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

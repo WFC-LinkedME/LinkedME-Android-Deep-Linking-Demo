@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:padding="@dimen/com_facebook_share_button_padding_bottom"
+                android:padding="@dimen/distance_10"
                 android:text="@string/str_apps_more"
                 android:textColor="@color/color_title"
                 android:textSize="@dimen/text_size_12" />
@@ -131,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="@dimen/com_facebook_share_button_padding_bottom"
+                android:padding="@dimen/distance_10"
                 android:text="@string/str_introduction_tip"
                 android:textColor="@color/color_main_introduction_tip"
                 android:textSize="@dimen/text_size_10" />

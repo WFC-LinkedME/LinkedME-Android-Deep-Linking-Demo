@@ -1,36 +1,35 @@
 package com.microquation.sample.activity;
 
 import android.app.Application;
-import android.content.Context;
-import android.support.multidex.MultiDex;
 
 import com.microquation.linkedme.android.LinkedME;
-import com.microquation.linkedme.android.referral.LMApp;
 import com.microquation.linkedme.android.referral.LMUtil;
 import com.umeng.socialize.PlatformConfig;
 
 /**
- * Created by qipo on 15/11/29.
+ *
+ * <p>在自定义的Application的onCreate()方法中调用以下方法</p>
+ *  <pre class="prettyprint">
+ * if (!LMUtil.isTestModeEnabled(this)) {
+ *   LinkedME.getInstance(this);
+ * } else {
+ *   LinkedME.getTestInstance(this);
+ * }
+ * </pre>
+ *
+ * <p>Created by qipo on 15/11/29.</p>
  */
-public class LinkedMEDemoApp extends LMApp {
-
-
-    //修改LMApp，原来为
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }
+public class LinkedMEDemoApp extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-//        if (!LMUtil.isTestModeEnabled(this)) {
-//            LinkedME.getInstance(this);
-//        } else {
-//            LinkedME.getTestInstance(this);
-//        }
+        if (!LMUtil.isTestModeEnabled(this)) {
+            LinkedME.getInstance(this);
+        } else {
+            LinkedME.getTestInstance(this);
+        }
 //        LinkedME.initialize(this);
 
         //友盟社会化分享
