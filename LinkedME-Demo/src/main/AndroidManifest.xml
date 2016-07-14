@@ -1,118 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.microquation.sample"
     android:installLocation="preferExternal">
 
+    <!-- 需要开启的权限 -->
 
-    <!--LinkedME-->
-
-    <!-- 需要实现自定义的Application,参见 LinkedMEDemoApp 类-->
-    <application
-        android:name=".activity.LinkedMEDemoApp"
-        android:allowBackup="true"
-        android:configChanges="orientation|keyboard"
-        android:icon="@drawable/icon1"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-
-        <activity
-            android:name=".activity.MainActivity"
-            android:configChanges="orientation|keyboard"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <!-- URI Scheme方式 -->
-            <intent-filter>
-                <data android:scheme="linkedmedemo" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
-
-            <!-- APP Links方式,Android 23版本及以后支持 -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:host="lkme.cc" android:pathPrefix="/AfC" android:scheme="https" />
-                <data android:host="lkme.cc" android:pathPrefix="/AfC" android:scheme="http" />
-
-            </intent-filter>
-        </activity>
-
-
-        <!-- 是否为测试模式标志,true:测试模式,false:线上模式 -->
-        <meta-data
-            android:name="linkedme.sdk.TestMode"
-            android:value="false" />
-        <!-- 线上模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
-        <meta-data
-            android:name="linkedme.sdk.key"
-            android:value="linkedme_live_7e289a2484f4368dbafbd1e5c7d06903" />
-        <!-- 线上模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
-        <meta-data
-            android:name="linkedme.sdk.key.test"
-            android:value="linkedme_test_7e289a2484f4368dbafbd1e5c7d06903" />
-
-        <!-- 应用方页面 -->
-        <activity android:name=".activity.AppsActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-            <meta-data
-                android:name="linkedme.sdk.auto_link_path"
-                android:value="apps" />
-        </activity>
-
-        <!-- DEMO页面 -->
-        <activity android:name=".activity.DemoActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-            <meta-data
-                android:name="linkedme.sdk.auto_link_path"
-                android:value="demo" />
-        </activity>
-
-        <!-- 简介页面 -->
-        <activity android:name=".activity.SummaryActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-            <meta-data
-                android:name="linkedme.sdk.auto_link_path"
-                android:value="summary" />
-        </activity>
-
-        <!-- 产品特点页面 -->
-        <activity android:name=".activity.FeaturesActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-            <meta-data
-                android:name="linkedme.sdk.auto_link_path"
-                android:value="feature" />
-        </activity>
-
-
-        <!--LinkedME Demo App为演示深度功能，集成友盟的社会化分享组件，实现分享功能-->
-
-        <!-- 友盟AppKey-->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="560fce13e0f55a730c003844" />
-
-    </application>
-
-    <!--需要开启的权限-->
 
     <!-- 深度链接需要的权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -135,7 +27,122 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
 
+    <!-- LinkedME -->
+    <!-- 需要实现自定义的Application,参见 LinkedMEDemoApp 类 -->
+    <application
+        android:name=".activity.LinkedMEDemoApp"
+        android:allowBackup="true"
+        android:configChanges="orientation|keyboard"
+        android:icon="@drawable/icon1"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|keyboard"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- URI Scheme方式 -->
+            <intent-filter>
+                <data android:scheme="linkedmedemo" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+            <!-- APP Links方式,Android 23版本及以后支持 -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="lkme.cc"
+                    android:pathPrefix="/AfC"
+                    android:scheme="https" />
+                <data
+                    android:host="lkme.cc"
+                    android:pathPrefix="/AfC"
+                    android:scheme="http" />
+                <data
+                    android:host="www.lkme.cc"
+                    android:pathPrefix="/AfC"
+                    android:scheme="https" />
+                <data
+                    android:host="www.lkme.cc"
+                    android:pathPrefix="/AfC"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+        <!-- 是否为测试模式标志,true:测试模式,可打印sdk内日志;false:线上模式 -->
+        <!-- Demo只能用线下模式,即value="true" -->
+        <meta-data
+            android:name="linkedme.sdk.TestMode"
+            android:value="true" />
+        <!-- 线上模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
+        <meta-data
+            android:name="linkedme.sdk.key"
+            android:value="linkedme_live_7e289a2484f4368dbafbd1e5c7d06903" />
+        <!-- 线上模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
+        <meta-data
+            android:name="linkedme.sdk.key.test"
+            android:value="linkedme_test_7e289a2484f4368dbafbd1e5c7d06903" />
+
+        <!-- DEMO页面 -->
+        <activity
+            android:name=".activity.DemoActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+            <meta-data
+                android:name="linkedme.sdk.auto_link_path"
+                android:value="demo" />
+        </activity>
+
+        <!-- 分享页面 -->
+        <activity
+            android:name=".activity.ShareActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+            <meta-data
+                android:name="linkedme.sdk.auto_link_path"
+                android:value="demo" />
+        </activity>
+
+        <!-- 友盟AppKey -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="560fce13e0f55a730c003844" />
+
+        <!-- 新浪微博配置 -->
+        <activity
+            android:name=".activity.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微博配置,不要删除该配置,即使显示红色 -->
+        <service
+            android:name="com.sina.weibo.sdk.net.DownloadService"
+            android:exported="false"></service>
+
+    </application>
 
 </manifest>
-
-

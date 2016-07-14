@@ -8,6 +8,8 @@
   <color name = "color_content_green">#35C782</color>
   <color name = "color_features_green"> #2E9989</color>
   <color name = "color_features_content"> #A6B9CA</color>
+  <color name = "white"> #FFFFFF</color>
+  <color name = "black"> #000000</color>
 
   
 

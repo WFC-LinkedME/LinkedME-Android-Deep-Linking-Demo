@@ -12,7 +12,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -67,7 +67,7 @@
                 app:layout_rowWeight="1" />
         </android.support.v7.widget.GridLayout>
 
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/introduction_tip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,5 +79,5 @@
             android:textColor="@color/color_main_introduction_tip"
             android:textSize="@dimen/text_size_10" />
     </RelativeLayout>
-</android.support.v7.widget.LinearLayoutCompat>
+</LinearLayout>
 

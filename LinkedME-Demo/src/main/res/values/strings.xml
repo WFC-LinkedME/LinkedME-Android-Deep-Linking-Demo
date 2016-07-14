@@ -108,7 +108,7 @@
     <string name="str_apps_name">应用方</string>
     <string name="str_features_name">产品特点</string>
     <string name="str_demo_name">DEMO</string>
-    <string name="str_introduction_name">产品简介</string>
+    <string name="str_intro_name">产品简介</string>
     <string name="str_apps_more">更多应用集成中...</string>
     <string name="str_introduction_one">Linked ME</string>
     <string name="str_introduction_two">是跨平台链接的解决方案</string>
@@ -147,6 +147,16 @@
                 第二，LinkedME始终支持Android，iOS，Hybrid APP技术的更新，并及时更新LinkedME所有技术服务，比如iOS9增加了很多特性，LinkedME将逐步依次实现。
                 第三，稳定可靠，LinkedME的后台经过巨大的压力测试，支持每日过亿访问量，与此同时，对企业所有链接数据提供备灾方案；
                 第四，隐私保护，LinkedME针对企业的所有链接数据绝对安全保护；</string>
+
+    <string name="str_h5_apps">https://www.linkedme.cc/iosdemo/apps.jsp</string>
+    <string name="str_path_apps">partner</string>
+    <string name="str_share_content_apps">LinkedME产品已经被众多移动应用垂青, 比如Uber、滴滴、36Kr、小饭桌、每天、道口贷等等, 更多应用正在集成中...;</string>
+    <string name="str_h5_features">https://www.linkedme.cc/iosdemo/features.jsp</string>
+    <string name="str_path_features">feature</string>
+    <string name="str_share_content_features">LinkedME产品特点主要包括几个方面, 比如跨平台链接,深度内容分享,APP间互联,WEB和APP互通,可视化数据分析中心,精细化运营等等...;</string>
+    <string name="str_h5_intro">https://www.linkedme.cc/iosdemo/intro.jsp</string>
+    <string name="str_path_intro">summary</string>
+    <string name="str_share_content_intro">LinkedME是移动应用跨平台链接的解决方案,针对应用内所有页面定义唯一链接,使得移动应用不再是信息孤岛...</string>
 
     <string name="action_settings">Settings</string>
 
