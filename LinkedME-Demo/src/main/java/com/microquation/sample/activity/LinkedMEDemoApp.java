@@ -7,16 +7,15 @@ import com.microquation.linkedme.android.referral.LMUtil;
 import com.umeng.socialize.PlatformConfig;
 
 /**
- *
  * <p>在自定义的Application的onCreate()方法中调用以下方法</p>
- *  <pre class="prettyprint">
+ * <pre class="prettyprint">
  * if (!LMUtil.isTestModeEnabled(this)) {
- *   LinkedME.getInstance(this);
+ * LinkedME.getInstance(this);
  * } else {
- *   LinkedME.getTestInstance(this);
+ * LinkedME.getTestInstance(this);
  * }
  * </pre>
- *
+ * <p/>
  * <p>Created by qipo on 15/11/29.</p>
  */
 public class LinkedMEDemoApp extends Application {
@@ -24,14 +23,16 @@ public class LinkedMEDemoApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        if (!LMUtil.isTestModeEnabled(this)) {
-            LinkedME.getInstance(this);
-        } else {
-            LinkedME.getTestInstance(this);
-        }
+        try {
+            if (!LMUtil.isTestModeEnabled(this)) {
+                LinkedME.getInstance(this);
+            } else {
+                LinkedME.getTestInstance(this);
+            }
 //        LinkedME.initialize(this);
-
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //友盟社会化分享
         {
             //微信
