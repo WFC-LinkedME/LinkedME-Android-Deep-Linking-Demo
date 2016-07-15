@@ -3,7 +3,6 @@
 *.ap_
 
 # Files for the Dalvik VM
-# Files for the ART/Dalvik VM
 *.dex
 
 # Java class files
@@ -12,21 +11,6 @@
 # Generated files
 bin/
 gen/
-
-# LinkedME Android Deep Linking Demo libs
-
-# libs/
-
-.idea/
-*.iml
-# Gradle files
-.gradle/
-iml
-build/
-gradle/
-gradlew
-gradlew.bat
-out/
 
 # Gradle files
 .gradle/
@@ -44,8 +28,23 @@ proguard/
 # Android Studio Navigation editor temp files
 .navigation/
 
+# Android Studio
+*.iml
+.idea
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+
 # Android Studio captures folder
 captures/
 
-# Keystore files
-*.jks
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+# Eclipse project files
+.classpath
+.project
+
+#NDK
+obj/
