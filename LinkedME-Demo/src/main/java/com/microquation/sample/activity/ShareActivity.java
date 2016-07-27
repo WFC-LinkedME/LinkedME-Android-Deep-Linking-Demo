@@ -18,6 +18,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.microquation.linkedme.android.referral.PrefHelper;
 import com.microquation.sample.R;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
@@ -90,6 +91,7 @@ public class ShareActivity extends AppCompatActivity {
         setContentView(R.layout.activity_share);
         title = getIntent().getStringExtra(TITLE);
         loadUrl = getIntent().getStringExtra(PARAM_VIEW);
+        loadUrl += "?linkedme_key=" + PrefHelper.getInstance(this).getLinkedMeKey();
         shareContent = getIntent().getStringExtra(SHARE_CONTENT);
         url_path = getIntent().getStringExtra(URL_PATH);
         findviews();
