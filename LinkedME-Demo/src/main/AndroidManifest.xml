@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.microquation.sample"
-    android:installLocation="preferExternal">
+    android:installLocation="auto">
 
     <!-- 需要开启的权限 -->
 
@@ -50,7 +50,7 @@
 
             <!-- URI Scheme方式 -->
             <intent-filter>
-                <data android:scheme="linkedmedemo" />
+                <data android:scheme="lkmedemo" />
 
                 <action android:name="android.intent.action.VIEW" />
 
