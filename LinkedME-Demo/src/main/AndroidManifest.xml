@@ -48,7 +48,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- URI Scheme方式 -->
+            <!-- URI Scheme方式 在dashboard配置中,请保持与ios的URI Scheme相同 -->
+            <!--如果程序已存在与此完全相同的data配置,即只包含scheme并且值完全相同,
+            则需要考虑发起的intent会出现相同应用图标的选择对话框的情况
+            参考集成文档:https://www.linkedme.cc/docs/page4.html#link1-->
             <intent-filter>
                 <data android:scheme="lkmedemo" />
 
@@ -85,10 +88,10 @@
         </activity>
 
         <!-- 是否为测试模式标志,true:测试模式,可打印sdk内日志;false:线上模式 -->
-        <!-- Demo只能用线下模式,即value="true" -->
+        <!-- Demo只能用线上模式,即value="false" -->
         <meta-data
             android:name="linkedme.sdk.TestMode"
-            android:value="true" />
+            android:value="false" />
         <!-- 线上模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
         <meta-data
             android:name="linkedme.sdk.key"

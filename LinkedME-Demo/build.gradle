@@ -21,8 +21,8 @@ android {
         applicationId "com.microquation.linkedme"
         minSdkVersion 8
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.2"
     }
 
     lintOptions {
@@ -36,7 +36,7 @@ ext {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile "com.android.support:appcompat-v7:${supportVersion}"
     compile "com.android.support:gridlayout-v7:${supportVersion}"
     compile "com.android.support:design:${supportVersion}"
