@@ -36,22 +36,35 @@
         android:icon="@drawable/icon1"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
+        <!-- 启动页面 -->
         <activity
-            android:name=".activity.MainActivity"
-            android:configChanges="orientation|keyboard"
-            android:label="@string/app_name"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
+            android:name=".activity.SplashActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Launcher">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+        </activity>
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|keyboard"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+
             <!-- URI Scheme方式 在dashboard配置中,请保持与ios的URI Scheme相同 -->
-            <!--如果程序已存在与此完全相同的data配置,即只包含scheme并且值完全相同,
+            <!--
+            如果程序已存在与此完全相同的data配置,即只包含scheme并且值完全相同,
             则需要考虑发起的intent会出现相同应用图标的选择对话框的情况
-            参考集成文档:https://www.linkedme.cc/docs/page4.html#link1-->
+            参考集成文档:https://www.linkedme.cc/docs/page4.html#link1
+            -->
             <intent-filter>
                 <data android:scheme="lkmedemo" />
 
@@ -89,17 +102,23 @@
 
         <!-- 是否为测试模式标志,true:测试模式,可打印sdk内日志;false:线上模式 -->
         <!-- Demo只能用线上模式,即value="false" -->
-        <meta-data
-            android:name="linkedme.sdk.TestMode"
-            android:value="false" />
+        <!-- 注意:从 SDK 1.0.3 及之后版本,该模式已被废弃,无任何作用,因此无需配置,要打印日志请参考Application中的配置,之前版本请配置 -->
+        <!-- <meta-data -->
+        <!-- android:name="linkedme.sdk.TestMode" -->
+        <!-- android:value="false" /> -->
+
+
         <!-- 线上模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
         <meta-data
             android:name="linkedme.sdk.key"
             android:value="linkedme_live_7e289a2484f4368dbafbd1e5c7d06903" />
-        <!-- 线上模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
-        <meta-data
-            android:name="linkedme.sdk.key.test"
-            android:value="linkedme_test_7e289a2484f4368dbafbd1e5c7d06903" />
+
+        <!-- 线下模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
+        <!-- 注意:从 SDK 1.0.3 及之后版本,该线下模式已被废弃,无任何作用,因此无需配置,之前版本请配置 -->
+        <!-- <meta-data -->
+        <!-- android:name="linkedme.sdk.key.test" -->
+        <!-- android:value="linkedme_test_7e289a2484f4368dbafbd1e5c7d06903" /> -->
+
 
         <!-- DEMO页面 -->
         <activity
@@ -137,6 +156,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -144,7 +164,7 @@
         <!-- 微博配置,不要删除该配置,即使显示红色 -->
         <service
             android:name="com.sina.weibo.sdk.net.DownloadService"
-            android:exported="false"></service>
+            android:exported="false" />
 
     </application>
 
