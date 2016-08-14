@@ -21,4 +21,8 @@
         <item name="android:padding">@dimen/distance_10</item>
     </style>
 
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
+    </style>
+
 </resources>

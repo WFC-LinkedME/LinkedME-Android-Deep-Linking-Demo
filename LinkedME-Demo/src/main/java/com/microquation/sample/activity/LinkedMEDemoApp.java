@@ -3,7 +3,7 @@ package com.microquation.sample.activity;
 import android.app.Application;
 
 import com.microquation.linkedme.android.LinkedME;
-import com.microquation.linkedme.android.referral.LMUtil;
+import com.microquation.sample.BuildConfig;
 import com.umeng.socialize.PlatformConfig;
 
 /**
@@ -24,12 +24,21 @@ public class LinkedMEDemoApp extends Application {
     public void onCreate() {
         super.onCreate();
         try {
-            if (!LMUtil.isTestModeEnabled(this)) {
+
+//          SDK 1.0.3及之后版本按照以下配置
+            if (BuildConfig.DEBUG){
+                //设置debug模式下打印LinkedME日志
+                LinkedME.getInstance(this).setDebug();
+            }else{
                 LinkedME.getInstance(this);
-            } else {
-                LinkedME.getTestInstance(this);
             }
-//        LinkedME.initialize(this);
+
+//            SDK 1.0.3 之前版本(不包含 1.0.3)按照以下配置
+//            if (!LMUtil.isTestModeEnabled(this)) {
+//                LinkedME.getInstance(this);
+//            } else {
+//                LinkedME.getTestInstance(this);
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
