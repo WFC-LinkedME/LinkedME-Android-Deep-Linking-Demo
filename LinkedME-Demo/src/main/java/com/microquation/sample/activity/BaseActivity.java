@@ -63,7 +63,8 @@ public class BaseActivity extends AppCompatActivity {
                     if (linkProperties != null) {
                         Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
                         Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
-
+                        Log.i("LinkedME-Demo", "link(深度链接) " + linkProperties.getLMLink());
+                        Log.i("LinkedME-Demo", "是否为新安装 " + linkProperties.isLMNewUser());
                         //获取自定义参数封装成的hashmap对象
                         HashMap<String, String> hashMap = linkProperties.getControlParams();
 
@@ -73,7 +74,12 @@ public class BaseActivity extends AppCompatActivity {
                         String shareContent = "";
                         String url_path = "";
                         if (view != null) {
-                            if (view.equals(getString(R.string.str_h5_apps))) {
+                            if (view.equals("Demo")) {
+                                Intent intent = new Intent(BaseActivity.this, DemoActivity.class);
+                                intent.putExtra("keyValue", hashMap.toString());
+                                startActivity(intent);
+                                return;
+                            } else if (view.equals(getString(R.string.str_h5_apps))) {
                                 title = getString(R.string.str_apps_name);
                                 shareContent = getString(R.string.str_share_content_apps);
                                 url_path = getString(R.string.str_path_apps);
