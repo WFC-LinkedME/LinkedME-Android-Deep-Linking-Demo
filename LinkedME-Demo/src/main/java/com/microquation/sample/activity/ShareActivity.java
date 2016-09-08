@@ -178,7 +178,7 @@ public class ShareActivity extends BaseActivity {
 //                        universalObject.generateShortUrl(ShareActivity.this, properties, new LMLinkCreateListener() {
 //                            //https://www.lkme.cc/AfC/idFsW02l7
 //                            @Override
-//                            public void onLinkCreate(String url, LMError error) {
+//                            public void onLinkCreate(final String url, LMError error) {
                         final UMImage image = new UMImage(ShareActivity.this, "https://www.linkedme.cc/homepage2.jpg");
                         /**友盟分享化分享，分享的链接不单单是H5链接，而是携带深度链接的H5链接*/
                         new ShareAction(ShareActivity.this).setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.SINA, SHARE_MEDIA.SMS, SHARE_MEDIA.EMAIL)

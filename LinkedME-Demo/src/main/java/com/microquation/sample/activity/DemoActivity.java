@@ -55,6 +55,9 @@ public class DemoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo_activity);
         findViews();
+        if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra("keyValue"))){
+            demo_link_view.setText(getIntent().getStringExtra("keyValue"));
+        }
     }
 
     private void findViews() {
@@ -113,9 +116,9 @@ public class DemoActivity extends BaseActivity {
                 universalObject.generateShortUrl(DemoActivity.this, properties, new LMLinkCreateListener() {
                     @Override
                     public void onLinkCreate(String url, LMError error) {
+                        //url为生成的深度链接
                         demo_edit.setText(url);
-                        demo_link_view.setVisibility(View.VISIBLE);
-                        //获取自定义参数数据
+                        //获取深度链接对应的自定义参数数据
                         demo_link_view.setText(properties.getControlParams().toString());
                         Log.i(TAG, "LinkedME onCreated " + url);
                     }

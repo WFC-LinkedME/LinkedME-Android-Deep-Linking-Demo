@@ -37,15 +37,14 @@
             <android.support.v7.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/distance_20"
                 android:orientation="horizontal"
+                android:layout_marginTop="@dimen/distance_20"
                 android:padding="@dimen/distance_10">
 
                 <android.support.v7.widget.AppCompatEditText
                     android:id="@+id/demo_edit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/distance_10"
                     android:layout_weight="1"
                     android:background="@color/color_edit"
                     android:padding="@dimen/distance_10"
@@ -56,8 +55,8 @@
                     android:id="@+id/demo_open_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/distance_10"
                     android:background="@drawable/border"
+                    android:layout_marginLeft="@dimen/distance_10"
                     android:text="复制"
                     android:textSize="@dimen/text_size_18" />
 
@@ -76,18 +75,26 @@
                 android:src="@drawable/selector_btn_link_bg" />
 
 
-
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="15"
+                android:padding="@dimen/distance_10"
+                android:text="深度链接自定义参数的键值对:"
+                android:textColor="@android:color/white"
+                />
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/demo_link_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/distance_30"
                 android:background="@color/color_content_view"
                 android:maxLines="15"
                 android:padding="@dimen/distance_10"
-                android:text="parameters for the linkedme url"
+                android:layout_margin="@dimen/distance_10"
+                android:text="未定义"
                 android:textColor="@android:color/black"
-                android:visibility="gone" />
+                android:visibility="visible"
+                />
 
         </android.support.v7.widget.LinearLayoutCompat>
 
