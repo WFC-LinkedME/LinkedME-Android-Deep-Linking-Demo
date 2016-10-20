@@ -47,7 +47,6 @@ public class BaseActivity extends AppCompatActivity {
      * <p>通过LinkProperties对象调用getControlParams方法获取自定义参数的HashMap对象,
      * 通过创建的自定义key获取相应的值,用于数据处理。</p>
      */
-    //。
     LMSimpleInitListener simpleInitListener = new LMSimpleInitListener() {
         @Override
         public void onSimpleInitFinished(LMUniversalObject lmUniversalObject, LinkProperties linkProperties, LMError error) {

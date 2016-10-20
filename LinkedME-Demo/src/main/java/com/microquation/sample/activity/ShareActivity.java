@@ -193,7 +193,7 @@ public class ShareActivity extends BaseActivity {
                                                     .withText(shareContent)
                                                     .withTitle("LinkedME" + title)
                                                     .withMedia(image)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后
+                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
 //                                                          .withTargetUrl(H5_URL + url_path + "?linkedme=" + url)
                                                     .withTargetUrl(H5_URL + url_path)
                                                     .setCallback(umShareListener)
@@ -205,7 +205,7 @@ public class ShareActivity extends BaseActivity {
                                                     .withText(shareContent)
                                                     .withTitle("LinkedME" + title)
                                                     .withMedia(image)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后
+                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
 //                                                          .withTargetUrl(H5_URL + url_path + "?linkedme=" + url)
                                                     .withTargetUrl(H5_URL + url_path)
                                                     .setCallback(umShareListener)
@@ -217,7 +217,7 @@ public class ShareActivity extends BaseActivity {
                                                     .withText(shareContent)
                                                     .withTitle("LinkedME" + title)
                                                     .withMedia(image)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后
+                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
 //                                                          .withTargetUrl(H5_URL + url_path + "?linkedme=" + url)
                                                     .withTargetUrl(H5_URL + url_path)
                                                     .setCallback(umShareListener)
@@ -227,7 +227,7 @@ public class ShareActivity extends BaseActivity {
                                             new ShareAction(ShareActivity.this)
                                                     .setPlatform(share_media)
                                                     .withText(shareContent + "点击查看:" + H5_URL + url_path)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后
+                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
 //                                                            .withText(shareContent + "点击查看:" + H5_URL + url_path + "?linkedme=" + url)
                                                     .setCallback(umShareListener)
                                                     .share();
@@ -237,7 +237,7 @@ public class ShareActivity extends BaseActivity {
                                                     .setPlatform(share_media)
                                                     .withTitle("LinkedME" + title)
                                                     .withText(shareContent + "点击查看:" + H5_URL + url_path)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后
+                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
 //                                                            .withText(shareContent + "点击查看:" + H5_URL + url_path + "?linkedme=" + url)
                                                     .setCallback(umShareListener)
                                                     .share();
