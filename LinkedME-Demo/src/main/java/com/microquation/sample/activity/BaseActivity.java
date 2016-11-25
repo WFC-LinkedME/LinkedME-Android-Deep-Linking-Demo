@@ -18,6 +18,9 @@ import java.util.HashMap;
 /**
  * Created by LinkedME06 on 16/8/14.
  * 将深度链接处理集成到BaseActivity中,可解决应用后台唤起无法跳转到详情页的问题,具体参考demo中的"SDK集成注意事项.md"文件
+ *
+ * SDK 1.0.6及以后采用其他更优方案，基类集成方案可忽略！！！
+ *
  */
 public class BaseActivity extends AppCompatActivity {
 
@@ -34,6 +37,7 @@ public class BaseActivity extends AppCompatActivity {
                 Log.i(TAG, "LinkedME +++++++ initSession... " + this.getClass().getSimpleName());
                 //初始化LinkedME实例
                 linkedME = LinkedME.getInstance();
+                linkedME.setHandleStatus(true);
                 //初始化Session，获取Intent内容及跳转参数
                 linkedME.initSession(simpleInitListener, this.getIntent().getData(), this);
             }

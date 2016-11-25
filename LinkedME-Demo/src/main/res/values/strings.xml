@@ -159,5 +159,6 @@
     <string name="str_share_content_intro">LinkedME是移动应用跨平台链接的解决方案,针对应用内所有页面定义唯一链接,使得移动应用不再是信息孤岛...</string>
 
     <string name="action_settings">Settings</string>
+    <string name="count_down_str">%d秒</string>
 
 </resources>

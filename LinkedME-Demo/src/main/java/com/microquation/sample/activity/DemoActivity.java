@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatImageButton;
@@ -29,7 +30,7 @@ import com.microquation.sample.R;
  * <p>Created by qipo on 15/7/29.</p>
  */
 
-public class DemoActivity extends BaseActivity {
+public class DemoActivity extends AppCompatActivity {
 
     private static final String TAG = DemoActivity.class.getName();
     /**
@@ -55,7 +56,7 @@ public class DemoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo_activity);
         findViews();
-        if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra("keyValue"))){
+        if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra("keyValue"))) {
             demo_link_view.setText(getIntent().getStringExtra("keyValue"));
         }
     }
@@ -116,11 +117,15 @@ public class DemoActivity extends BaseActivity {
                 universalObject.generateShortUrl(DemoActivity.this, properties, new LMLinkCreateListener() {
                     @Override
                     public void onLinkCreate(String url, LMError error) {
-                        //url为生成的深度链接
-                        demo_edit.setText(url);
-                        //获取深度链接对应的自定义参数数据
-                        demo_link_view.setText(properties.getControlParams().toString());
-                        Log.i(TAG, "LinkedME onCreated " + url);
+                        if (error == null) {
+                            //url为生成的深度链接
+                            demo_edit.setText(url);
+                            //获取深度链接对应的自定义参数数据
+                            demo_link_view.setText(properties.getControlParams().toString());
+                            Log.i(TAG, "LinkedME onCreated " + url);
+                        } else {
+                            Log.i(TAG, "创建深度链接失败！失败原因：" + error.getMessage());
+                        }
                     }
                 });
             }

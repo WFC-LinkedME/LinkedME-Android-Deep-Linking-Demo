@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <Button
+                android:id="@+id/register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="注册"/>
+
+        <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="登录"/>
+
+        <Button
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="退出"/>
+
+        <Button
+                android:id="@+id/browse_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="浏览商品"/>
+
+        <Button
+                android:id="@+id/add_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="把商品加入购物车"/>
+
+        <Button
+                android:id="@+id/remove_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="把商品移出购物车"/>
+
+        <Button
+                android:id="@+id/browse_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="浏览购物车里的商品"/>
+
+        <Button
+                android:id="@+id/create_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="产生订单"/>
+
+        <Button
+                android:id="@+id/pay_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="支付订单,单项"/>
+
+        <Button
+                android:id="@+id/pay_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="支付订单,无支付类型"/>
+
+        <Button
+                android:id="@+id/pay_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="支付订单,无订单"/>
+
+        <Button
+                android:id="@+id/pay_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="支付订单,订单"/>
+
+        <Button
+                android:id="@+id/pay_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="订单支付成功"/>
+
+        <Button
+                android:id="@+id/add_role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="创建角色"/>
+
+        <Button
+                android:id="@+id/del_role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="删除角色"/>
+
+        <Button
+                android:id="@+id/sign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="签到"/>
+
+        <Button
+                android:id="@+id/custom_point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="自定义效果点"/>
+
+    </LinearLayout>
+</ScrollView>
