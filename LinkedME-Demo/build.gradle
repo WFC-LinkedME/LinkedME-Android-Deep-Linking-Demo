@@ -21,10 +21,20 @@ android {
         applicationId "com.microquation.linkedme"
         minSdkVersion 8
         targetSdkVersion 23
-        versionCode 5
-        versionName "1.0.5"
+        versionCode 6
+        versionName "1.0.6"
     }
-
+    buildTypes {
+        debug{
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
     lintOptions {
         abortOnError false
     }
@@ -41,5 +51,5 @@ dependencies {
     compile "com.android.support:gridlayout-v7:${supportVersion}"
     compile "com.android.support:design:${supportVersion}"
     compile "com.android.support:support-v4:${supportVersion}"
-    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.5.jar')
+    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.6.jar')
 }

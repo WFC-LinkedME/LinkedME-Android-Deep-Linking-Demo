@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,15 +31,15 @@ import com.umeng.socialize.utils.ShareBoardlistener;
 
 /**
  * <p>分享页面</p>
- * <p/>
+ *
  * <p>如果web端不能生成深度链接(没有自己的web服务器),需要客户端自己创建并拼接深度链接</p>
- * <p/>
+ *
  * <p>如果web端能创建深度链接(有自己的web服务器),则原有的分享逻辑不变,分享页面无需修改</p>
- * <p/>
+ *
  * <p>Created by qipo on 15/7/29.</p>
  */
 
-public class ShareActivity extends BaseActivity {
+public class ShareActivity extends AppCompatActivity {
 
     public static final String TITLE = "title";
     public static final String PARAM_VIEW = "param_view";

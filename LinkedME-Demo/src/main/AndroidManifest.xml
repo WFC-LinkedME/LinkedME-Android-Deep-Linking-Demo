@@ -12,11 +12,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- SDK 1.0.5及以后需要增加该权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <!-- 友盟分享需要的权限 -->
-
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -53,6 +51,16 @@
 
         </activity>
 
+        <activity android:name=".activity.WelcomeActivity"
+                  android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity android:name=".activity.LoginActivity"
+                  android:screenOrientation="portrait">
+
+        </activity>
+
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="orientation|keyboard"
@@ -64,7 +72,6 @@
             <!--
             如果程序已存在与此完全相同的data配置,即只包含scheme并且值完全相同,
             则需要考虑发起的intent会出现相同应用图标的选择对话框的情况
-            参考集成文档:https://www.linkedme.cc/docs/page4.html#link1
             -->
             <intent-filter>
                 <data android:scheme="lkmedemo" />
@@ -101,25 +108,10 @@
             </intent-filter>
         </activity>
 
-        <!-- 是否为测试模式标志,true:测试模式,可打印sdk内日志;false:线上模式 -->
-        <!-- Demo只能用线上模式,即value="false" -->
-        <!-- 注意:从 SDK 1.0.3 及之后版本,该模式已被废弃,无任何作用,因此无需配置,要打印日志请参考Application中的配置,之前版本请配置 -->
-        <!-- <meta-data -->
-        <!-- android:name="linkedme.sdk.TestMode" -->
-        <!-- android:value="false" /> -->
-
-
-        <!-- 线上模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
+        <!-- LinkedME官网注册应用后,从"设置"页面获取该Key -->
         <meta-data
             android:name="linkedme.sdk.key"
-            android:value="linkedme_live_7e289a2484f4368dbafbd1e5c7d06903" />
-
-        <!-- 线下模式 LinkedME官网注册应用后,从"设置"页面获取该Key -->
-        <!-- 注意:从 SDK 1.0.3 及之后版本,该线下模式已被废弃,无任何作用,因此无需配置,之前版本请配置 -->
-        <!-- <meta-data -->
-        <!-- android:name="linkedme.sdk.key.test" -->
-        <!-- android:value="linkedme_test_7e289a2484f4368dbafbd1e5c7d06903" /> -->
-
+            android:value="7e289a2484f4368dbafbd1e5c7d06903" />
 
         <!-- DEMO页面 -->
         <activity
@@ -128,9 +120,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
+        </activity>
+
+        <!-- DEMO页面 -->
+        <activity
+            android:name=".activity.TrackingActivity"
+            android:screenOrientation="portrait">
             <meta-data
-                android:name="linkedme.sdk.auto_link_path"
-                android:value="demo" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
         </activity>
 
         <!-- 分享页面 -->
@@ -140,9 +138,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
-            <meta-data
-                android:name="linkedme.sdk.auto_link_path"
-                android:value="demo" />
         </activity>
 
         <!-- 友盟AppKey -->
@@ -160,6 +155,14 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.MiddleActivity"
+            android:screenOrientation="portrait"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <meta-data android:name="linkedme.sdk.auto_link_keys" android:value="linkedme"/>
         </activity>
 
         <!-- 微博配置,不要删除该配置,即使显示红色 -->

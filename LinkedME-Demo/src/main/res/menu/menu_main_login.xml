@@ -4,7 +4,7 @@
       tools:context=".MainActivity">
     <item
             android:id="@+id/login"
-            android:title="登录"
+            android:title="已登录"
             android:orderInCategory="100"
             app:showAsAction="never"/>
     <item
