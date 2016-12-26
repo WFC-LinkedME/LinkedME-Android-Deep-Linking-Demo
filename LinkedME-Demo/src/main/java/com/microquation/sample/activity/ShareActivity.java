@@ -169,6 +169,9 @@ public class ShareActivity extends AppCompatActivity {
 //                        properties.addTag("Demo");
 //                        //阶段
 //                        properties.setStage("Live");
+//                        //设置该h5_url目的是为了iOS点击右上角lkme.cc时跳转的地址，一般设置为当前分享页面的地址
+                           //H5_URL + url_path其实就是就是分享的链接，不要被这个所误导
+//                        properties.setH5Url(H5_URL + url_path);
 //                        //自定义参数,用于在深度链接跳转后获取该数据
 //                        properties.addControlParameter("LinkedME", "Demo");
 //                        properties.addControlParameter("View", loadUrl);

@@ -160,8 +160,7 @@
         <activity
             android:name=".activity.MiddleActivity"
             android:screenOrientation="portrait"
-            android:noHistory="true"
-            android:theme="@android:style/Theme.NoDisplay">
+            android:noHistory="true">
             <meta-data android:name="linkedme.sdk.auto_link_keys" android:value="linkedme"/>
         </activity>
 

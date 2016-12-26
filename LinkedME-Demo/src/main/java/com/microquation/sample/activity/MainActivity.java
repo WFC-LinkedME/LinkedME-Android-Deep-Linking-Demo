@@ -187,6 +187,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.logout:
                         if (SPHelper.getInstance(getApplicationContext()).getUserLogin()){
                             SPHelper.getInstance(getApplicationContext()).setUserLogin(false);
+                            // 此处针对跳转是否受用户登录限制的情况，在此处重置为false，防止用户点击退出后退到后台再唤起APP时跳转到详情页
+                            LinkedME.getInstance().setImmediate(false);
                             Toast.makeText(MainActivity.this, "退出成功！", Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(MainActivity.this, "未登录，无需退出！", Toast.LENGTH_SHORT).show();
