@@ -62,6 +62,8 @@ public class MiddleActivity extends AppCompatActivity {
                 }
                 openActivity(title, view, shareContent, url_path, ShareActivity.class);
             }
+            //清除跳转数据，该方法理论上不需要调用，因Android集成方式各种这样，若出现重复跳转的情况，可在跳转成功后调用该方法清除参数
+            //LinkedME.getInstance().clearSessionParams();
         }
 
         if (lmUniversalObject != null) {

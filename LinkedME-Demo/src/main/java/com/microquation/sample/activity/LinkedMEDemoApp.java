@@ -17,7 +17,6 @@ public class LinkedMEDemoApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        try {
             Log.i("LinkedME", "onCreate: LinkedMEDemoApp............");
             if (BuildConfig.DEBUG) {
                 //设置debug模式下打印LinkedME日志
@@ -40,9 +39,6 @@ public class LinkedMEDemoApp extends Application {
             // ...
             //  }
             LinkedME.getInstance().setImmediate(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         //友盟社会化分享
         {
             //微信
