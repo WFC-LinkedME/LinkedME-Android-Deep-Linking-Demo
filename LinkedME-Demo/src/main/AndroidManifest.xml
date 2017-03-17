@@ -1,72 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.microquation.sample"
-    android:installLocation="auto">
+          package="com.microquation.sample"
+          android:installLocation="auto">
 
     <!-- 需要开启的权限 -->
 
 
     <!-- 深度链接需要的权限 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+    <uses-feature android:name="android.hardware.location.gps"/>
+    <uses-feature android:name="android.hardware.location.network"/>
 
     <!-- 友盟分享需要的权限 -->
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
 
     <!-- LinkedME -->
     <!-- 需要实现自定义的Application,参见 LinkedMEDemoApp 类 -->
     <application
-        android:name=".activity.LinkedMEDemoApp"
-        android:allowBackup="true"
-        android:configChanges="orientation|keyboard"
-        android:icon="@drawable/icon1"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-
+            android:name=".activity.LinkedMEDemoApp"
+            android:allowBackup="true"
+            android:configChanges="orientation|keyboard"
+            android:icon="@drawable/icon1"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
         <!-- 启动页面 -->
         <activity
-            android:name=".activity.SplashActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Launcher">
+                android:name=".activity.SplashActivity"
+                android:configChanges="keyboardHidden|orientation"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.Launcher">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
-        </activity>
-
-        <activity android:name=".activity.WelcomeActivity"
-                  android:screenOrientation="portrait">
-
-        </activity>
-
-        <activity android:name=".activity.LoginActivity"
-                  android:screenOrientation="portrait">
-
-        </activity>
-
-        <activity
-            android:name=".activity.MainActivity"
-            android:configChanges="orientation|keyboard"
-            android:label="@string/app_name"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait">
 
             <!-- URI Scheme方式 在dashboard配置中,请保持与ios的URI Scheme相同 -->
             <!--
@@ -74,100 +57,120 @@
             则需要考虑发起的intent会出现相同应用图标的选择对话框的情况
             -->
             <intent-filter>
-                <data android:scheme="lkmedemo" />
+                <data android:scheme="lkmedemo"/>
 
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
 
             <!-- APP Links方式,Android 23版本及以后支持 -->
             <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
 
                 <data
-                    android:host="lkme.cc"
-                    android:pathPrefix="/AfC"
-                    android:scheme="https" />
+                        android:host="lkme.cc"
+                        android:pathPrefix="/AfC"
+                        android:scheme="https"/>
                 <data
-                    android:host="lkme.cc"
-                    android:pathPrefix="/AfC"
-                    android:scheme="http" />
-                <data
-                    android:host="www.lkme.cc"
-                    android:pathPrefix="/AfC"
-                    android:scheme="https" />
-                <data
-                    android:host="www.lkme.cc"
-                    android:pathPrefix="/AfC"
-                    android:scheme="http" />
+                        android:host="lkme.cc"
+                        android:pathPrefix="/AfC"
+                        android:scheme="http"/>
             </intent-filter>
+
+
+        </activity>
+
+        <activity
+                android:name=".activity.WelcomeActivity"
+                android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+                android:name=".activity.LoginActivity"
+                android:screenOrientation="portrait">
+
+        </activity>
+
+        <activity
+                android:name=".activity.MainActivity"
+                android:configChanges="orientation|keyboard"
+                android:label="@string/app_name"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait">
+
+
         </activity>
 
         <!-- LinkedME官网注册应用后,从"设置"页面获取该Key -->
         <meta-data
-            android:name="linkedme.sdk.key"
-            android:value="7e289a2484f4368dbafbd1e5c7d06903" />
+                android:name="linkedme.sdk.key"
+                android:value="7e289a2484f4368dbafbd1e5c7d06903"/>
 
         <!-- DEMO页面 -->
         <activity
-            android:name=".activity.DemoActivity"
-            android:screenOrientation="portrait">
+                android:name=".activity.DemoActivity"
+                android:screenOrientation="portrait">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
-        </activity>
-
-        <!-- DEMO页面 -->
-        <activity
-            android:name=".activity.TrackingActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.MainActivity"/>
         </activity>
 
         <!-- 分享页面 -->
         <activity
-            android:name=".activity.ShareActivity"
-            android:screenOrientation="portrait">
+                android:name=".activity.ShareActivity"
+                android:screenOrientation="portrait">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".activity.MainActivity"/>
+        </activity>
+
+        <!-- 广告详情页面 -->
+        <activity
+                android:name=".activity.AdDetailActivity"
+                android:screenOrientation="portrait">
+        </activity>
+        <!-- 广告详情页面 -->
+        <activity
+                android:name=".activity.AdvertisementActivity"
+                android:screenOrientation="portrait">
         </activity>
 
         <!-- 友盟AppKey -->
         <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="560fce13e0f55a730c003844" />
+                android:name="UMENG_APPKEY"
+                android:value="560fce13e0f55a730c003844"/>
 
         <!-- 新浪微博配置 -->
         <activity
-            android:name=".activity.WBShareActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
+                android:name=".activity.WBShareActivity"
+                android:configChanges="keyboardHidden|orientation"
+                android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".activity.MiddleActivity"
-            android:screenOrientation="portrait"
-            android:noHistory="true">
-            <meta-data android:name="linkedme.sdk.auto_link_keys" android:value="linkedme"/>
+                android:name=".activity.MiddleActivity"
+                android:screenOrientation="portrait"
+                android:noHistory="true">
+            <meta-data
+                    android:name="linkedme.sdk.auto_link_keys"
+                    android:value="linkedme"/>
         </activity>
 
         <!-- 微博配置,不要删除该配置,即使显示红色 -->
         <service
-            android:name="com.sina.weibo.sdk.net.DownloadService"
-            android:exported="false" />
+                android:name="com.sina.weibo.sdk.net.DownloadService"
+                android:exported="false"/>
 
     </application>
 

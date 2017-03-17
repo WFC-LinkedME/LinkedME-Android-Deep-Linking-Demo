@@ -1,11 +1,11 @@
 package com.microquation.sample.activity;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,7 +39,7 @@ import com.umeng.socialize.utils.ShareBoardlistener;
  * <p>Created by qipo on 15/7/29.</p>
  */
 
-public class ShareActivity extends AppCompatActivity {
+public class ShareActivity extends BaseActivity {
 
     public static final String TITLE = "title";
     public static final String PARAM_VIEW = "param_view";
@@ -142,6 +142,7 @@ public class ShareActivity extends AppCompatActivity {
     }
 
 
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         toolbar.inflateMenu(R.menu.more);

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.microquation.linkedme.android.LinkedME;
 import com.microquation.linkedme.android.indexing.LMUniversalObject;
@@ -24,6 +25,7 @@ public class MiddleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(this, "MiddleActivity 被调用了", Toast.LENGTH_SHORT).show();
         //获取与深度链接相关的值
         LinkProperties linkProperties = getIntent().getParcelableExtra(LinkedME.LM_LINKPROPERTIES);
         LMUniversalObject lmUniversalObject = getIntent().getParcelableExtra(LinkedME.LM_UNIVERSALOBJECT);
@@ -42,6 +44,14 @@ public class MiddleActivity extends AppCompatActivity {
             String shareContent = "";
             String url_path = "";
             if (view != null) {
+                try {
+                    //view的值在生成深度链接的时候应该配置成这样的格式："com.microquation.sample.activity.DemoActivity"，activity的引用路径
+                    Intent intent = new Intent(MiddleActivity.this, Class.forName(view));
+                    intent.putExtras(getIntent().getExtras());
+                    startActivity(intent);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
                 if (view.equals("Demo")) {
                     Intent intent = new Intent(MiddleActivity.this, DemoActivity.class);
                     intent.putExtra("keyValue", hashMap.toString());
