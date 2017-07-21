@@ -35,6 +35,7 @@ public class AdvertisementActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdvertisementActivity.this, AdDetailActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
             }
@@ -65,7 +66,7 @@ public class AdvertisementActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        Log.d(getClass().getSimpleName(), "onResume: isTimerCanceled=" + isTimerCanceled + "timer=" + timer);
+        Log.i(getClass().getSimpleName(), "onResume: isTimerCanceled=" + isTimerCanceled + "timer=" + timer);
         //此处判断timer==null是为了解决应用宝唤起后台APP后，有时isTimerCanceled一直为false的情况
         if (timer == null || isTimerCanceled) {
             //若被取消，则直接finish掉
@@ -75,10 +76,9 @@ public class AdvertisementActivity extends BaseActivity {
     }
 
     @Override
-    protected void onStop() {
-        Log.d(getClass().getSimpleName(), "onStop: isTimerCanceled=" + isTimerCanceled);
+    public void onBackPressed() {
+        super.onBackPressed();
         timer.cancel();
         isTimerCanceled = true;
-        super.onStop();
     }
 }

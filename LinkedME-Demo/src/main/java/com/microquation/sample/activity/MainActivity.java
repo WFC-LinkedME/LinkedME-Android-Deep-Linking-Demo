@@ -20,50 +20,61 @@
 
 package com.microquation.sample.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatImageButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.microquation.linkedme.android.LinkedME;
+import com.microquation.linkedme.android.v4.ContextCompatLKMe;
 import com.microquation.sample.R;
 
 /**
  * <p>此Activity是为了演示当从深度链接跳转到intent-filter对应的Activity时, 如何通过深度链接获取自定义参数,以便后续操作的实现(例如:跳转到指定的分享页面)</p>
- * <p> <p>集成步骤:</p> <p>1、在onStart()方法中获取LinkedME对象并调用 initSession(LMUniversalReferralInitListener
- * callback, @NonNull Uri data, Activity activity)设置session进行监听</p> <p>2、在onStop()方法中调用closeSession关闭当前session</p>
+ * <p>集成步骤:</p>
+ * <p>1、在onStart()方法中获取LinkedME对象并调用 initSession(LMUniversalReferralInitListener
+ * callback, @NonNull Uri data, Activity activity)设置session进行监听</p>
+ * <p>2、在onStop()方法中调用closeSession关闭当前session</p>
  */
 public class MainActivity extends BaseActivity {
 
     /**
      * 应用方
      */
-    private AppCompatImageButton id_apps;
+    private ImageButton id_apps;
     /**
      * 产品特点
      */
-    private AppCompatImageButton id_features;
+    private ImageButton id_features;
     /**
      * DEMO
      */
-    private AppCompatImageButton id_demo;
+    private ImageButton id_demo;
     /**
      * 简介
      */
-    private AppCompatImageButton id_intro;
+    private ImageButton id_intro;
     private ImageView more;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         findViews();
+        if (ContextCompatLKMe.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1004);
+        }
     }
 
     @Override
@@ -82,7 +93,6 @@ public class MainActivity extends BaseActivity {
             startActivity(loginIntent);
             finish();
         }
-
     }
 
     @Override
@@ -101,10 +111,10 @@ public class MainActivity extends BaseActivity {
      * 组件初始化及事件响应
      */
     private void findViews() {
-        id_apps = (AppCompatImageButton) findViewById(R.id.id_apps);
-        id_features = (AppCompatImageButton) findViewById(R.id.id_features);
-        id_demo = (AppCompatImageButton) findViewById(R.id.id_demo);
-        id_intro = (AppCompatImageButton) findViewById(R.id.id_intro);
+        id_apps = (ImageButton) findViewById(R.id.id_apps);
+        id_features = (ImageButton) findViewById(R.id.id_features);
+        id_demo = (ImageButton) findViewById(R.id.id_demo);
+        id_intro = (ImageButton) findViewById(R.id.id_intro);
         more = (ImageView) findViewById(R.id.more);
         id_apps.setOnClickListener(new View.OnClickListener() {
             @Override

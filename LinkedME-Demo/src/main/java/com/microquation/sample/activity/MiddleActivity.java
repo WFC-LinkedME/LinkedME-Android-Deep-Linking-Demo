@@ -25,6 +25,7 @@ public class MiddleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(LinkedME.TAG, "onCreate: MiddleActivity is called.");
         Toast.makeText(this, "MiddleActivity 被调用了", Toast.LENGTH_SHORT).show();
         //获取与深度链接相关的值
         LinkProperties linkProperties = getIntent().getParcelableExtra(LinkedME.LM_LINKPROPERTIES);
@@ -34,8 +35,7 @@ public class MiddleActivity extends AppCompatActivity {
             Log.i("LinkedME-Demo", "Channel " + linkProperties.getChannel());
             Log.i("LinkedME-Demo", "control params " + linkProperties.getControlParams());
             Log.i("LinkedME-Demo", "link(深度链接) " + linkProperties.getLMLink());
-            Log.i("LinkedME-Demo", "是否为新安装 " + linkProperties.isLMNewUser());
-            //获取自定义参数封装成的hashmap对象
+            //获取自定义参数封装成的HashMap对象
             HashMap<String, String> hashMap = linkProperties.getControlParams();
 
             //获取传入的参数
@@ -44,14 +44,6 @@ public class MiddleActivity extends AppCompatActivity {
             String shareContent = "";
             String url_path = "";
             if (view != null) {
-                try {
-                    //view的值在生成深度链接的时候应该配置成这样的格式："com.microquation.sample.activity.DemoActivity"，activity的引用路径
-                    Intent intent = new Intent(MiddleActivity.this, Class.forName(view));
-                    intent.putExtras(getIntent().getExtras());
-                    startActivity(intent);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
                 if (view.equals("Demo")) {
                     Intent intent = new Intent(MiddleActivity.this, DemoActivity.class);
                     intent.putExtra("keyValue", hashMap.toString());

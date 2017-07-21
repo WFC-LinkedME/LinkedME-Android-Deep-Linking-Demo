@@ -10,8 +10,8 @@ android {
             storePassword 'android'
         }
     }
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 25
+    buildToolsVersion '25.0.3'
     compileOptions {
         encoding "UTF-8"
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -20,9 +20,9 @@ android {
     defaultConfig {
         applicationId "com.microquation.linkedme"
         minSdkVersion 9
-        targetSdkVersion 23
-        versionCode 10
-        versionName "1.0.10"
+        targetSdkVersion 25
+        versionCode 12
+        versionName "1.0.12"
     }
     buildTypes {
         debug{
@@ -42,7 +42,7 @@ android {
 }
 
 ext {
-    supportVersion = "23.4.0"
+    supportVersion = "25.3.1"
 }
 
 dependencies {
@@ -51,5 +51,5 @@ dependencies {
     compile "com.android.support:gridlayout-v7:${supportVersion}"
     compile "com.android.support:design:${supportVersion}"
     compile "com.android.support:support-v4:${supportVersion}"
-    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.10.jar')
+    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.12.jar')
 }

@@ -8,13 +8,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.microquation.linkedme.android.callback.LMLinkCreateListener;
@@ -39,7 +39,7 @@ public class DemoActivity extends BaseActivity {
     /**
      * 生成深度链接按钮
      */
-    private AppCompatImageButton demo_link_button;
+    private ImageButton demo_link_button;
     /**
      * 生成的深度链接
      */
@@ -69,7 +69,7 @@ public class DemoActivity extends BaseActivity {
         }
 
         demo_open_button = (AppCompatButton) findViewById(R.id.demo_open_button);
-        demo_link_button = (AppCompatImageButton) findViewById(R.id.demo_link_button);
+        demo_link_button = (ImageButton) findViewById(R.id.demo_link_button);
         demo_edit = (AppCompatEditText) findViewById(R.id.demo_edit);
         demo_link_view = (AppCompatTextView) findViewById(R.id.demo_link_view);
 

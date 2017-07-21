@@ -10,15 +10,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.microquation.linkedme.android.referral.PrefHelper;
 import com.microquation.sample.R;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
@@ -91,7 +88,6 @@ public class ShareActivity extends BaseActivity {
         setContentView(R.layout.activity_share);
         title = getIntent().getStringExtra(TITLE);
         loadUrl = getIntent().getStringExtra(PARAM_VIEW);
-        loadUrl += "?linkedme_key=" + PrefHelper.getInstance(this).getLinkedMeKey();
         shareContent = getIntent().getStringExtra(SHARE_CONTENT);
         url_path = getIntent().getStringExtra(URL_PATH);
         findviews();
@@ -134,10 +130,6 @@ public class ShareActivity extends BaseActivity {
                 super.onPageFinished(view, url);
             }
 
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                super.onReceivedError(view, request, error);
-            }
         });
     }
 
@@ -171,7 +163,7 @@ public class ShareActivity extends BaseActivity {
 //                        //阶段
 //                        properties.setStage("Live");
 //                        //设置该h5_url目的是为了iOS点击右上角lkme.cc时跳转的地址，一般设置为当前分享页面的地址
-                           //H5_URL + url_path其实就是就是分享的链接，不要被这个所误导
+                        //H5_URL + url_path其实就是就是分享的链接，不要被这个所误导
 //                        properties.setH5Url(H5_URL + url_path);
 //                        //自定义参数,用于在深度链接跳转后获取该数据
 //                        properties.addControlParameter("LinkedME", "Demo");
