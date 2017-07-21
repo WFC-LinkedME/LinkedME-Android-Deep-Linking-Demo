@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.microquation.linkedme.android.LinkedME;
@@ -69,9 +70,6 @@ public class LinkedMEDemoApp extends Application {
         LinkedME.getInstance().setImmediate(false);
         //设置处理跳转逻辑的中转页
         LinkedME.getInstance().setHandleActivity(MiddleActivity.class.getName());
-        // 客户端不添加跳转逻辑，而是在生成深度链接时，
-        // 指定跳转的页面及页面相关参数，由LinkedME自动添加相关参数到指定的页面
-        // LinkedME.getInstance().setAutoDLActivityKey("target_activity");
 
         //友盟社会化分享
         {
@@ -97,7 +95,7 @@ public class LinkedMEDemoApp extends Application {
     }
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    private class CustomActivityLifeCycleObserver implements ActivityLifecycleCallbacks {
+    private class CustomActivityLifeCycleObserver implements Application.ActivityLifecycleCallbacks {
 
         private int activityCount = 0;
         private int activityInstanceCount = 0;
@@ -126,7 +124,9 @@ public class LinkedMEDemoApp extends Application {
             activityCount--;
             if (activityCount < 1) {
                 isInBackground = true;
-                showedAd = false;
+                if (!TextUtils.equals(activity.getClass().getSimpleName(), AdvertisementActivity.class.getSimpleName())) {
+                    showedAd = false;
+                }
             }
         }
 

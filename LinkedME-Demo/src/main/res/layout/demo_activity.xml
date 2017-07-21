@@ -18,7 +18,7 @@
             android:background="@android:color/transparent"
             app:title="@string/str_demo_name" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:scaleType="centerCrop"
@@ -64,7 +64,7 @@
             </android.support.v7.widget.LinearLayoutCompat>
 
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                 android:id="@+id/demo_link_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="210dp">
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/ground_line"
@@ -40,28 +40,28 @@
                 app:columnCount="2"
                 app:rowCount="2">
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                     android:id="@+id/id_apps"
                     style="@style/apps_icon"
                     android:src="@drawable/selector_btn_apps_bg"
                     app:layout_columnWeight="1"
                     app:layout_rowWeight="1"/>
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                     android:id="@+id/id_features"
                     style="@style/apps_icon"
                     android:src="@drawable/selector_btn_featrues_bg"
                     app:layout_columnWeight="1"
                     app:layout_rowWeight="1"/>
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                     android:id="@+id/id_demo"
                     style="@style/apps_icon"
                     android:src="@drawable/selector_btn_demo_bg"
                     app:layout_columnWeight="1"
                     app:layout_rowWeight="1"/>
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                     android:id="@+id/id_intro"
                     style="@style/apps_icon"
                     android:src="@drawable/selector_btn_introction_bg"

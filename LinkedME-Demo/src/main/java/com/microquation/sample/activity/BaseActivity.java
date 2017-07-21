@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.microquation.linkedme.android.LinkedME;
 
 /**
- * Created by LinkedME06 on 16/8/14. 将深度链接处理集成到BaseActivity中,可解决应用后台唤起无法跳转到详情页的问题,具体参考demo中的"SDK集成注意事项.md"文件
+ * Created by LinkedME06 on 16/8/14.
  *
  * SDK 1.0.6及以后采用其他更优方案，基类集成方案可忽略！！！
  */
@@ -42,8 +42,8 @@ public class BaseActivity extends AppCompatActivity {
         LinkedME.getInstance().onLMResumed(this);
         super.onResume();
         // TODO: 27/02/2017 广告演示：退到后台再回到前台后展示广告
-        if (LinkedMEDemoApp.getInstance().isInBackground()
-                && !LinkedMEDemoApp.getInstance().isShowedAd()) {
+        if (LinkedMEDemoApp.getInstance().isInBackground() &&
+                !LinkedMEDemoApp.getInstance().isShowedAd()) {
             //延迟跳转是为了防止页面未完成就跳转到广告页面了
             new Handler().postDelayed(new Runnable() {
                 @Override

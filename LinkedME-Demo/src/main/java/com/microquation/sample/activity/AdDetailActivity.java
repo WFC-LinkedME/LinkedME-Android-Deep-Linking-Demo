@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -24,6 +22,7 @@ public class AdDetailActivity extends BaseActivity {
 
     private WebView webView;
     private ProgressBar loading;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +36,7 @@ public class AdDetailActivity extends BaseActivity {
         }
         webView.getSettings().setJavaScriptEnabled(true);
         String url = "http://www.linkedme.cc";
-        if (!TextUtils.isEmpty(getIntent().getStringExtra("ad_url"))){
+        if (!TextUtils.isEmpty(getIntent().getStringExtra("ad_url"))) {
             url = getIntent().getStringExtra("ad_url");
         }
         webView.loadUrl(url);
@@ -58,11 +57,6 @@ public class AdDetailActivity extends BaseActivity {
             public void onPageFinished(WebView view, String url) {
                 loading.setVisibility(View.GONE);
                 super.onPageFinished(view, url);
-            }
-
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                super.onReceivedError(view, request, error);
             }
         });
 

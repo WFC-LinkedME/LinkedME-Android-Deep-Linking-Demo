@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageButton
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:scaleType="centerCrop"
