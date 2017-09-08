@@ -11,7 +11,7 @@
 ```
 dependencies {
     //注意修改jar包名,与下载的jar包名称一致
-    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.12.jar')
+    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.14.jar')
  }
 ```
 2.添加maven仓库引用导入
@@ -47,7 +47,7 @@ allprojects {
 ```groovy
 dependencies {
 compile fileTree(include: ['*.jar'], dir: 'libs')
-compile "cc.linkedme.deeplinks:link-page:1.0.12"
+compile "cc.linkedme.deeplinks:link-page:1.0.14"
 }
 ```
 ### 配置AndroidManifest.xml
@@ -149,21 +149,22 @@ public class LinkedMEDemoApp extends Application {
                 LinkedME.getInstance(this);
             }
             // 设置是否开启自动跳转指定页面，默认为true
-            // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onCreate()方法中，
+            // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onResume()方法中，
             // 重新设置为true，否则将禁止开启自动跳转指定页面功能
             // 示例：
             // @Override
             // public class MainActivity extends AppCompatActivity {
             // ...
             // @Override
-            // protected void onCreate(Bundle savedInstanceState) {
-            //    super.onCreate(savedInstanceState);
-            //    setContentView(R.layout.main);
+            // protected void onResume() {
+            //    super.onResume();
             //    LinkedME.getInstance().setImmediate(true);
             //   }
             // ...
             //  }
-            // LinkedME.getInstance().setImmediate(false);
+            
+            //建议初始时设置为false，在需要跳转的地方设置为true
+            LinkedME.getInstance().setImmediate(false);
        } catch (Exception e) {
            e.printStackTrace();
        }
@@ -228,13 +229,12 @@ public class BaseActivity extends AppCompatActivity {
         setIntent(intent);
     }
 ```
-若在自定义Application中初始化LinkedME时`禁用`自动跳转功能，则还需要在onCreate()中方法调用LinkedME.getInstance().setImmediate(true);  方法，开启自动跳转功能，从而控制从主页面跳转到指定页面。
+若在自定义Application中初始化LinkedME时`禁用`自动跳转功能，则还需要在onResume()中方法调用LinkedME.getInstance().setImmediate(true);  方法，开启自动跳转功能，从而控制从主页面跳转到指定页面。
 示例如下：
 ```
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+    protected void onResume() {
+        super.onResume();
         LinkedME.getInstance().setImmediate(true);
     }
 ```
