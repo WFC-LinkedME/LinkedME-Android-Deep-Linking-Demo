@@ -70,7 +70,8 @@
 
         <activity
                 android:name=".activity.LoginActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:launchMode="singleTop">
 
         </activity>
 
@@ -87,7 +88,12 @@
             则需要考虑发起的intent会出现相同应用图标的选择对话框的情况
             -->
             <intent-filter>
-                <data android:scheme="lkmedemo"/>
+                <!-- 此处scheme值需要替换为后台设置中的scheme值 -->
+                <!-- host禁止更改！！！ -->
+                <!-- 禁止配置其他属性 -->
+                <data
+                        android:scheme="lkmedemo"
+                        android:host="linkedme"/>
 
                 <action android:name="android.intent.action.VIEW"/>
 

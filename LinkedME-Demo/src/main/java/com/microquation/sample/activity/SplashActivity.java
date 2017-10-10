@@ -17,15 +17,12 @@ public class SplashActivity extends BaseActivity {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
-
-
         PrefHelper.Debug(LinkedME.TAG, "origin onCreate: SplashActivity " + getIntent().getDataString());
-
         Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
         startActivity(intent);
         finish();
-
     }
+
 
     @Override
     protected void onResume() {

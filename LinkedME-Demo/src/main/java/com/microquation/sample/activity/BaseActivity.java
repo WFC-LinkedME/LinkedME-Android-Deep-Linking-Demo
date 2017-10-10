@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.microquation.linkedme.android.LinkedME;
 
@@ -27,7 +28,8 @@ public class BaseActivity extends AppCompatActivity {
         //兼容14之前的版本需要在基类中添加以下代码
         LinkedME.getInstance().onLMStarted(this);
         // TODO: 27/02/2017 广告演示：退到后台再回到前台后展示广告
-        if (LinkedMEDemoApp.getInstance().isInBackground() && !LinkedMEDemoApp.getInstance().isShowedAd()) {
+        if ((LinkedMEDemoApp.getInstance().isInBackground() && !LinkedMEDemoApp.getInstance().isShowedAd()) ||
+                (!SPHelper.getInstance(getApplicationContext()).getUserLogin())) {
             //在此处添加跳转限制，目的是为了在广告展示完毕后再进行跳转，
             //需要在super.onStart()方法调用之前添加该限制，否则无法生效
             LinkedME.getInstance().addJumpConstraint();
@@ -40,16 +42,15 @@ public class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         //兼容14之前的版本需要在基类中添加以下代码
         LinkedME.getInstance().onLMResumed(this);
-        super.onResume();
         // TODO: 27/02/2017 广告演示：退到后台再回到前台后展示广告
         if (LinkedMEDemoApp.getInstance().isInBackground() &&
-                !LinkedMEDemoApp.getInstance().isShowedAd()) {
+                !LinkedMEDemoApp.getInstance().isShowedAd() &&
+                SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
+            Log.i(LinkedME.TAG, "onResume: 开始显示广告");
             //延迟跳转是为了防止页面未完成就跳转到广告页面了
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    //此处移除跳转限制，在展示完广告后需要调用LinkedME.getInstance().setImmediate(true);来执行跳转
-                    LinkedME.getInstance().removeJumpConstraint();
                     //一些状态的修改
                     LinkedMEDemoApp.getInstance().setInBackground(false);
                     LinkedMEDemoApp.getInstance().setShowedAd(true);
@@ -59,6 +60,7 @@ public class BaseActivity extends AppCompatActivity {
             }, 10);
 
         }
+        super.onResume();
     }
 
     @Override

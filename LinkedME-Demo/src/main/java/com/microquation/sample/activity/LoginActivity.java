@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
+import com.microquation.linkedme.android.LinkedME;
 import com.microquation.sample.R;
 
 /**
@@ -23,6 +24,10 @@ public class LoginActivity extends BaseActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 此处设置广告已显示，防止用户登录后又展示广告页面，用户第一次登录不应展示广告
+                LinkedMEDemoApp.getInstance().setShowedAd(true);
+                // 登录成功后，移除跳转限制
+                LinkedME.getInstance().removeJumpConstraint();
                 SPHelper.getInstance(getApplicationContext()).setUserLogin(true);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);

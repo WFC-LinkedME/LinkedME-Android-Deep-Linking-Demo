@@ -20,11 +20,8 @@
 
 package com.microquation.sample.activity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
 import android.view.MenuInflater;
@@ -36,7 +33,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.microquation.linkedme.android.LinkedME;
-import com.microquation.linkedme.android.v4.ContextCompatLKMe;
 import com.microquation.sample.R;
 
 /**
@@ -72,9 +68,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         findViews();
-        if (ContextCompatLKMe.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 1004);
-        }
     }
 
     @Override
@@ -90,6 +83,7 @@ public class MainActivity extends BaseActivity {
             //未登录用户不自动跳转
             LinkedME.getInstance().setImmediate(false);
             Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+            loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(loginIntent);
             finish();
         }
