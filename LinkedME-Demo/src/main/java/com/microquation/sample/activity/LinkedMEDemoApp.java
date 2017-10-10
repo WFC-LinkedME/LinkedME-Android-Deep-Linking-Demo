@@ -54,19 +54,8 @@ public class LinkedMEDemoApp extends Application {
             LinkedME.getInstance(this);
         }
         // 设置是否开启自动跳转指定页面，默认为true
-        // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onCreate()方法中，
+        // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onResume()方法中，
         // 重新设置为true，否则将禁止开启自动跳转指定页面功能
-        // 示例：
-        // public class MainActivity extends AppCompatActivity {
-        // ...
-        // @Override
-        // protected void onCreate(Bundle savedInstanceState) {
-        //    super.onCreate(savedInstanceState);
-        //    setContentView(R.layout.main);
-        //    LinkedME.getInstance().setImmediate(true);
-        //   }
-        // ...
-        //  }
         LinkedME.getInstance().setImmediate(false);
         //设置处理跳转逻辑的中转页
         LinkedME.getInstance().setHandleActivity(MiddleActivity.class.getName());
@@ -95,7 +84,7 @@ public class LinkedMEDemoApp extends Application {
     }
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    private class CustomActivityLifeCycleObserver implements Application.ActivityLifecycleCallbacks {
+    private class CustomActivityLifeCycleObserver implements ActivityLifecycleCallbacks {
 
         private int activityCount = 0;
         private int activityInstanceCount = 0;

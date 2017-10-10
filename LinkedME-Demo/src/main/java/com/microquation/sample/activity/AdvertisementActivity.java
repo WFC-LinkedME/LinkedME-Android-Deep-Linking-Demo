@@ -28,12 +28,19 @@ public class AdvertisementActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.advertisement);
+
+        //此处移除跳转限制，在展示广告后需要调用LinkedME.getInstance().setImmediate(true);来执行跳转
+        LinkedME.getInstance().removeJumpConstraint();
+
         startCountDownTime(5);
         Button show_ad = (Button) findViewById(R.id.show_ad);
         down_timer = (TextView) findViewById(R.id.down_timer);
         show_ad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 取消定时器
+                timer.cancel();
+                isTimerCanceled = true;
                 Intent intent = new Intent(AdvertisementActivity.this, AdDetailActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -55,9 +62,7 @@ public class AdvertisementActivity extends BaseActivity {
             @Override
             public void onFinish() {
                 // TODO: 27/02/2017 广告演示：广告展示完毕需要调用该方法执行深度链接跳转
-                //广告显示完后执行跳转到详情页面
-                LinkedME.getInstance().setImmediate(true);
-                finish();
+                closeActivity();
             }
 
         };
@@ -70,7 +75,7 @@ public class AdvertisementActivity extends BaseActivity {
         //此处判断timer==null是为了解决应用宝唤起后台APP后，有时isTimerCanceled一直为false的情况
         if (timer == null || isTimerCanceled) {
             //若被取消，则直接finish掉
-            finish();
+            closeActivity();
         }
         super.onResume();
     }
@@ -78,7 +83,17 @@ public class AdvertisementActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        timer.cancel();
-        isTimerCanceled = true;
+        closeActivity();
+    }
+
+    public void closeActivity() {
+        if (timer != null) {
+            timer.cancel();
+            isTimerCanceled = true;
+        }
+        //广告显示完后执行跳转到详情页面
+        // 但是如果需要用户登录才可以跳转到详情页，此处需要做限制，不让其跳转，当用户登录后再调用setImmediate(true)方法进行跳转
+        LinkedME.getInstance().setImmediate(true);
+        finish();
     }
 }

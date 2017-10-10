@@ -11,7 +11,7 @@
 ```
 dependencies {
     //注意修改jar包名,与下载的jar包名称一致
-    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.14.jar')
+    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.15.jar')
  }
 ```
 2.添加maven仓库引用导入
@@ -47,7 +47,7 @@ allprojects {
 ```groovy
 dependencies {
 compile fileTree(include: ['*.jar'], dir: 'libs')
-compile "cc.linkedme.deeplinks:link-page:1.0.14"
+compile "cc.linkedme.deeplinks:link-page:1.0.15"
 }
 ```
 ### 配置AndroidManifest.xml
@@ -148,22 +148,8 @@ public class LinkedMEDemoApp extends Application {
             } else {
                 LinkedME.getInstance(this);
             }
-            // 设置是否开启自动跳转指定页面，默认为true
-            // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onResume()方法中，
-            // 重新设置为true，否则将禁止开启自动跳转指定页面功能
-            // 示例：
-            // @Override
-            // public class MainActivity extends AppCompatActivity {
-            // ...
-            // @Override
-            // protected void onResume() {
-            //    super.onResume();
-            //    LinkedME.getInstance().setImmediate(true);
-            //   }
-            // ...
-            //  }
             
-            //建议初始时设置为false，在需要跳转的地方设置为true
+            //初始时设置为false，在配置Uri Scheme的Activity的onResume()中设置为true
             LinkedME.getInstance().setImmediate(false);
        } catch (Exception e) {
            e.printStackTrace();
@@ -222,21 +208,22 @@ public class BaseActivity extends AppCompatActivity {
 ### *配置URI Scheme唤起的Activity页面(例如：MainActivity)
 若在自定义Application中初始化LinkedME时`未禁用`自动跳转功能，则只需添加以下代码：
 ```java
-    // 添加此处目的是针对后台APP通过uri scheme唤起的情况，
-    // 注意：即使不区分用户是否登录也需要添加此设置，也可以添加到基类中
-    @Override
-    protected void onNewIntent(Intent intent) {
-        setIntent(intent);
-    }
+  // 添加此处目的是针对后台APP通过uri scheme唤起的情况，
+  // 注意：即使不区分用户是否登录也需要添加此设置，也可以添加到基类中
+  @Override
+  protected void onNewIntent(Intent intent) {
+    setIntent(intent);
+  }
 ```
-若在自定义Application中初始化LinkedME时`禁用`自动跳转功能，则还需要在onResume()中方法调用LinkedME.getInstance().setImmediate(true);  方法，开启自动跳转功能，从而控制从主页面跳转到指定页面。
-示例如下：
-```
-    @Override
-    protected void onResume() {
-        super.onResume();
-        LinkedME.getInstance().setImmediate(true);
-    }
+在onResume()中方法调用LinkedME.getInstance().setImmediate(true)方法，开启跳转功能，从而控制从主页面跳转到指定页面。 示例如下：
+
+
+```java
+  @Override
+  protected void onResume() {
+    super.onResume();
+    LinkedME.getInstance().setImmediate(true);
+  }
 ```
 ### *解析深度链接
 
@@ -302,7 +289,8 @@ public class MiddleActivity extends AppCompatActivity {
 ```
 ### 创建深度链接
 
-> 如果web端集成了web sdk,则无需客户端创建深度链接,此处可忽略
+> 如果web端集成了web sdk,则无需客户端创建深度链接,此处可忽略。(建议采用js sdk创建深度链接)  
+
 
 LinkedME SDK创建深度链接，必须传入链接的参数，用于区分App内不同的页面。比如唯品会商品详情页面的唯一标识为productId=230453452
 ```
