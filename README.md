@@ -11,7 +11,7 @@
 ```
 dependencies {
     //注意修改jar包名,与下载的jar包名称一致
-    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.15.jar')
+    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.16.jar')
  }
 ```
 2.添加maven仓库引用导入
@@ -47,7 +47,7 @@ allprojects {
 ```groovy
 dependencies {
 compile fileTree(include: ['*.jar'], dir: 'libs')
-compile "cc.linkedme.deeplinks:link-page:1.0.15"
+compile "cc.linkedme.deeplinks:link-page:1.0.16"
 }
 ```
 ### 配置AndroidManifest.xml

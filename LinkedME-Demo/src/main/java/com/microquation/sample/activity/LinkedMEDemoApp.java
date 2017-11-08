@@ -47,11 +47,13 @@ public class LinkedMEDemoApp extends Application {
         super.onCreate();
         instance = this;
         Log.i("LinkedME", "onCreate: LinkedMEDemoApp............");
+
+        // 初始化SDK
+        LinkedME.getInstance(this);
+
         if (BuildConfig.DEBUG) {
             //设置debug模式下打印LinkedME日志
-            LinkedME.getInstance(this).setDebug();
-        } else {
-            LinkedME.getInstance(this);
+            LinkedME.getInstance().setDebug();
         }
         // 设置是否开启自动跳转指定页面，默认为true
         // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onResume()方法中，
