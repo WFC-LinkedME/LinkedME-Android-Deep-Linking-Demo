@@ -11,7 +11,7 @@ android {
         }
     }
     compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '26.0.2'
     compileOptions {
         encoding "UTF-8"
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -21,8 +21,8 @@ android {
         applicationId "com.microquation.linkedme"
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 15
-        versionName "1.0.15"
+        versionCode 16
+        versionName "1.0.16"
     }
     buildTypes {
         debug{
@@ -51,5 +51,5 @@ dependencies {
     compile "com.android.support:gridlayout-v7:${supportVersion}"
     compile "com.android.support:design:${supportVersion}"
     compile "com.android.support:support-v4:${supportVersion}"
-    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.15.jar')
+    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.16.jar')
 }
