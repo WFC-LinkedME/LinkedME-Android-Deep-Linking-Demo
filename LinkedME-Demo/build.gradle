@@ -21,8 +21,8 @@ android {
         applicationId "com.microquation.linkedme"
         minSdkVersion 14
         targetSdkVersion 26
-        versionCode 19
-        versionName "1.0.19"
+        versionCode 20
+        versionName "1.0.20"
     }
     buildTypes {
         debug{
@@ -51,5 +51,5 @@ dependencies {
     compile "com.android.support:gridlayout-v7:${supportVersion}"
     compile "com.android.support:design:${supportVersion}"
     compile "com.android.support:support-v4:${supportVersion}"
-    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.19.jar')
+    compile files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.20.jar')
 }
