@@ -18,6 +18,13 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
         PrefHelper.Debug(LinkedME.TAG, "origin onCreate: SplashActivity " + getIntent().getDataString());
+        //处理首次安装点击打开切到后台,点击桌面图标再回来重启的问题及通过应用宝唤起在特定条件下重走逻辑的问题
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            // Activity was brought to front and not created,
+            // Thus finishing this will get us to the last viewed activity
+            finish();
+            return;
+        }
         Intent intent = new Intent(SplashActivity.this, WelcomeActivity.class);
         startActivity(intent);
         finish();

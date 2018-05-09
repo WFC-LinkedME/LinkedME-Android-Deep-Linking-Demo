@@ -91,7 +91,7 @@ public class AdvertisementActivity extends BaseActivity {
             timer.cancel();
             isTimerCanceled = true;
         }
-        //广告显示完后执行跳转到详情页面
+        // 广告显示完后执行跳转到详情页面
         // 但是如果需要用户登录才可以跳转到详情页，此处需要做限制，不让其跳转，当用户登录后再调用setImmediate(true)方法进行跳转
         LinkedME.getInstance().setImmediate(true);
         finish();
