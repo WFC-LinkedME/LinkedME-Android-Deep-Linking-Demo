@@ -73,6 +73,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        // TODO: 5/9/18 lipeng 无条件限制-start
+//        LinkedME.getInstance().setImmediate(true);
+        // TODO: 5/9/18 lipeng 无条件限制-end
         //此处针对跳转是否受用户登录限制的情况
         if (SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
             //已登录用户可以跳转到分享页面

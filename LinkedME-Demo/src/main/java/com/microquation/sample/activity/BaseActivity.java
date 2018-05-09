@@ -29,9 +29,13 @@ public class BaseActivity extends AppCompatActivity {
         LinkedME.getInstance().onLMStarted(this);
         // TODO: 27/02/2017 广告演示：退到后台再回到前台后展示广告
         if ((LinkedMEDemoApp.getInstance().isInBackground() && !LinkedMEDemoApp.getInstance().isShowedAd()) ||
-                (!SPHelper.getInstance(getApplicationContext()).getUserLogin())) {
-            //在此处添加跳转限制，目的是为了在广告展示完毕后再进行跳转，
-            //需要在super.onStart()方法调用之前添加该限制，否则无法生效
+                !SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
+            // 这里模拟了开发者集成可能需要处理的两个逻辑：
+            // 1. 当应用被从后台拉起并且需要展示过广告时展示广告；
+            // 2. 用户打开App未登录时需要跳转到登录页面进行登录；
+
+            //在此处添加跳转限制，目的是为了在广告展示完毕后或者登录后再进行跳转，
+            //需要在super.onStart()方法调用之前添加该限制，否则无法生效!!!
             LinkedME.getInstance().addJumpConstraint();
         }
         super.onStart();
@@ -46,6 +50,7 @@ public class BaseActivity extends AppCompatActivity {
         if (LinkedMEDemoApp.getInstance().isInBackground() &&
                 !LinkedMEDemoApp.getInstance().isShowedAd() &&
                 SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
+            // 只有从后台拉起到前台并且用户登录的情况下才会显示广告
             Log.i(LinkedME.TAG, "onResume: 开始显示广告");
             //延迟跳转是为了防止页面未完成就跳转到广告页面了
             new Handler().postDelayed(new Runnable() {
@@ -62,7 +67,6 @@ public class BaseActivity extends AppCompatActivity {
         }
         super.onResume();
     }
-
     @Override
     protected void onPause() {
         //兼容14之前的版本需要在基类中添加以下代码
