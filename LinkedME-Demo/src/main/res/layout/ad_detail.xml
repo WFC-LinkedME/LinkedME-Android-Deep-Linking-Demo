@@ -4,6 +4,24 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent">
+
+        <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"/>
+
+        <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/list_divider_line"/>
+    </android.support.design.widget.AppBarLayout>
+
     <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
