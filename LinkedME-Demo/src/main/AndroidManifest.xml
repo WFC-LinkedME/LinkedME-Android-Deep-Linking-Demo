@@ -90,6 +90,7 @@
                 android:name=".activity.UriSchemeProcessActivity"
                 android:screenOrientation="portrait"
                 android:noHistory="true"
+                android:launchMode="singleTask"
                 android:theme="@style/AppTheme.Launcher">
 
             <!-- URI Scheme方式 在dashboard配置中,请保持与ios的URI Scheme相同 -->
