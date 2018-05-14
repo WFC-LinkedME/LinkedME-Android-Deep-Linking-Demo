@@ -63,7 +63,6 @@ public class BaseActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             }, 10);
-
         }
         super.onResume();
     }
