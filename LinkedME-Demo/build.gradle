@@ -24,7 +24,7 @@ android {
         versionName "1.0.27"
     }
     buildTypes {
-        debug{
+        debug {
             minifyEnabled false
             debuggable true
         }
@@ -45,11 +45,18 @@ ext {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:${supportVersion}"
     implementation "com.android.support:gridlayout-v7:${supportVersion}"
     implementation "com.android.support:design:${supportVersion}"
     implementation "com.android.support:support-v4:${supportVersion}"
     implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.25.jar')
-//    implementation "cc.linkedme.deeplinks:link-page:1.0.24"
+    //    implementation "cc.linkedme.deeplinks:link-page:1.0.24"
+    // 友盟分享
+    implementation 'com.umeng.sdk:common:1.5.0'
+    implementation 'com.umeng.sdk:share-core:6.9.2'
+    implementation 'com.umeng.sdk:share-wechat:6.9.2'
+    implementation 'com.umeng.sdk:share-sina:6.9.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation files('libs/umeng-share-email-6.9.2.jar')
+    implementation files('libs/umeng-share-sms-6.9.2.jar')
 }

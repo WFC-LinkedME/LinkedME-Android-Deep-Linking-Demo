@@ -1,4 +1,4 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -15,7 +15,6 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.microquation.linkedme.android.LinkedME;
-import com.microquation.sample.R;
 
 /**
  * 广告详情页面

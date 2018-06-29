@@ -1,4 +1,4 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.content.Intent;
 import android.os.Bundle;

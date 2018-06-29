@@ -18,7 +18,7 @@
  * Created by qipo on 15/7/29.
  */
 
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +33,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.microquation.linkedme.android.LinkedME;
-import com.microquation.sample.R;
 
 /**
  * <p>此Activity是为了演示当从深度链接跳转到intent-filter对应的Activity时, 如何通过深度链接获取自定义参数,以便后续操作的实现(例如:跳转到指定的分享页面)</p>

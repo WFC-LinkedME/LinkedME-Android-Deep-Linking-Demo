@@ -1,4 +1,4 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import com.umeng.socialize.media.WBShareCallBackActivity;
 

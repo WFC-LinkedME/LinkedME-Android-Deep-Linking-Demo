@@ -1,4 +1,4 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.microquation.linkedme.android.LinkedME;
-import com.microquation.sample.BuildConfig;
+import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 
 /**
@@ -64,10 +64,12 @@ public class LinkedMEDemoApp extends Application {
 
         //友盟社会化分享
         {
+            UMConfigure.setLogEnabled(true);
+            UMConfigure.init(this, "560fce13e0f55a730c003844", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
             //微信
             PlatformConfig.setWeixin("wx6fc47eae6872f04c", "d4624c36b6795d1d99dcf0547af5443d");
             //新浪微博
-            PlatformConfig.setSinaWeibo("2929366075", "b84a93ea3d2b89f04559eddb5663c809");
+            PlatformConfig.setSinaWeibo("2929366075", "b84a93ea3d2b89f04559eddb5663c809", "http://sns.whalecloud.com");
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             CustomActivityLifeCycleObserver activityLifeCycleObserver = new CustomActivityLifeCycleObserver();

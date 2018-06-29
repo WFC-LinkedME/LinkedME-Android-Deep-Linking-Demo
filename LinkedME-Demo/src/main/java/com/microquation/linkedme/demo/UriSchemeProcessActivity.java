@@ -1,11 +1,9 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-
-import com.microquation.sample.R;
 
 /**
  * UriSchemeProcessActivity继承AppCompatActivity或者Activity，不继承基类
