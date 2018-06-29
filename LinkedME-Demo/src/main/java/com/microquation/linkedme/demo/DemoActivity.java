@@ -1,4 +1,4 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -21,7 +21,6 @@ import com.microquation.linkedme.android.callback.LMLinkCreateListener;
 import com.microquation.linkedme.android.indexing.LMUniversalObject;
 import com.microquation.linkedme.android.referral.LMError;
 import com.microquation.linkedme.android.util.LinkProperties;
-import com.microquation.sample.R;
 
 /**
  * <p>生成深度链接Demo</p>

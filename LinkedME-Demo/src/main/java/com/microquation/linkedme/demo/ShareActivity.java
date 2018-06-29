@@ -1,4 +1,4 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,14 +17,13 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.microquation.sample.R;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 import com.umeng.socialize.shareboard.SnsPlatform;
-import com.umeng.socialize.utils.Log;
 import com.umeng.socialize.utils.ShareBoardlistener;
 
 /**
@@ -61,6 +61,11 @@ public class ShareActivity extends BaseActivity {
      * 友盟分享的方法
      */
     private UMShareListener umShareListener = new UMShareListener() {
+        @Override
+        public void onStart(SHARE_MEDIA share_media) {
+
+        }
+
         @Override
         public void onResult(SHARE_MEDIA platform) {
             Log.d("plat", "platform" + platform);
@@ -183,62 +188,18 @@ public class ShareActivity extends BaseActivity {
                                     @Override
                                     public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA share_media) {
 
-                                        if (share_media == SHARE_MEDIA.WEIXIN) {
-                                            //微信
-                                            new ShareAction(ShareActivity.this)
-                                                    .setPlatform(share_media)
-                                                    .withText(shareContent)
-                                                    .withTitle("LinkedME" + title)
-                                                    .withMedia(image)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
-//                                                          .withTargetUrl(H5_URL + url_path + "?linkedme=" + url)
-                                                    .withTargetUrl(H5_URL + url_path)
-                                                    .setCallback(umShareListener)
-                                                    .share();
-                                        } else if (share_media == SHARE_MEDIA.WEIXIN_CIRCLE) {
-                                            //微信朋友圈
-                                            new ShareAction(ShareActivity.this)
-                                                    .setPlatform(share_media)
-                                                    .withText(shareContent)
-                                                    .withTitle("LinkedME" + title)
-                                                    .withMedia(image)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
-//                                                          .withTargetUrl(H5_URL + url_path + "?linkedme=" + url)
-                                                    .withTargetUrl(H5_URL + url_path)
-                                                    .setCallback(umShareListener)
-                                                    .share();
-                                        } else if (share_media == SHARE_MEDIA.SINA) {
-                                            //新浪
-                                            new ShareAction(ShareActivity.this)
-                                                    .setPlatform(share_media)
-                                                    .withText(shareContent)
-                                                    .withTitle("LinkedME" + title)
-                                                    .withMedia(image)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
-//                                                          .withTargetUrl(H5_URL + url_path + "?linkedme=" + url)
-                                                    .withTargetUrl(H5_URL + url_path)
-                                                    .setCallback(umShareListener)
-                                                    .share();
-                                        } else if (share_media == SHARE_MEDIA.SMS) {
-                                            //短信
-                                            new ShareAction(ShareActivity.this)
-                                                    .setPlatform(share_media)
-                                                    .withText(shareContent + "点击查看:" + H5_URL + url_path)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
-//                                                            .withText(shareContent + "点击查看:" + H5_URL + url_path + "?linkedme=" + url)
-                                                    .setCallback(umShareListener)
-                                                    .share();
-                                        } else if (share_media == SHARE_MEDIA.EMAIL) {
-                                            //邮件
-                                            new ShareAction(ShareActivity.this)
-                                                    .setPlatform(share_media)
-                                                    .withTitle("LinkedME" + title)
-                                                    .withText(shareContent + "点击查看:" + H5_URL + url_path)
-                                                    //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
-//                                                            .withText(shareContent + "点击查看:" + H5_URL + url_path + "?linkedme=" + url)
-                                                    .setCallback(umShareListener)
-                                                    .share();
-                                        }
+                                        //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
+//                                        UMWeb web = new UMWeb(H5_URL + url_path + "?linkedme=" + url);
+                                        UMWeb web = new UMWeb(H5_URL + url_path);
+                                        web.setTitle("LinkedME" + title);//标题
+                                        web.setThumb(image);  //缩略图
+                                        web.setDescription(shareContent);//描述
+                                        //微信
+                                        new ShareAction(ShareActivity.this)
+                                                .setPlatform(share_media)
+                                                .withMedia(web)
+                                                .setCallback(umShareListener)
+                                                .share();
                                     }
                                 }).open();
 //                            }
@@ -249,7 +210,9 @@ public class ShareActivity extends BaseActivity {
                 }
             }
         });
-        return super.onCreateOptionsMenu(menu);
+        return super.
+
+                onCreateOptionsMenu(menu);
     }
 
     /**

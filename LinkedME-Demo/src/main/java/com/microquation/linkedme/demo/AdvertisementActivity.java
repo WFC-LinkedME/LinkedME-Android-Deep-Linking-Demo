@@ -1,4 +1,4 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.microquation.linkedme.android.LinkedME;
-import com.microquation.sample.R;
 
 /**
  * Created by LinkedME06 on 24/02/2017.

@@ -1,11 +1,10 @@
-package com.microquation.sample.activity;
+package com.microquation.linkedme.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.microquation.linkedme.android.LinkedME;
 import com.microquation.linkedme.android.referral.PrefHelper;
-import com.microquation.sample.R;
 
 /**
  * 启动页面
