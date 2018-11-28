@@ -1,6 +1,7 @@
 #以下为友盟混淆
 -dontshrink
 -dontoptimize
+-dontpreverify
 -dontwarn com.google.android.maps.**
 -dontwarn android.webkit.WebView
 -dontwarn com.umeng.**
