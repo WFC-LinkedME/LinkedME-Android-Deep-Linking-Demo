@@ -34,9 +34,9 @@ public class UriSchemeProcessActivity extends AppCompatActivity {
         // TODO: 5/9/18 lipeng 无条件限制-end
 
         // 防止唤起后台App后一直停留在该页面
-        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+//        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
             finish();
-        }
+//        }
     }
 
     @Override
