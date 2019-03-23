@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -199,6 +200,16 @@ public class MainActivity extends BaseActivity {
             inflater.inflate(R.menu.menu_main, popup.getMenu());
         }
         popup.show();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            // 当用户准备退出应用时，是将应用压到后台，而不是正常的关闭activity
+            moveTaskToBack(false);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

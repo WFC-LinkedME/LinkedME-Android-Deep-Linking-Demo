@@ -13,6 +13,9 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <!-- 请添加该权限，用户更流畅的跳转 -->
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+
 
     <!-- 友盟分享需要的权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE"/>
@@ -47,6 +50,7 @@
                 android:name=".SplashActivity"
                 android:configChanges="keyboardHidden|orientation"
                 android:screenOrientation="portrait"
+                android:exported="true"
                 android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
