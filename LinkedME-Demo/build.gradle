@@ -10,7 +10,7 @@ android {
             storePassword 'android'
         }
     }
-    compileSdkVersion 27
+    compileSdkVersion 28
     compileOptions {
         encoding "UTF-8"
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -19,9 +19,9 @@ android {
     defaultConfig {
         applicationId "com.microquation.linkedme"
         minSdkVersion 14
-        targetSdkVersion 27
-        versionCode 30
-        versionName "1.0.30"
+        targetSdkVersion 28
+        versionCode 31
+        versionName "1.0.31"
     }
     buildTypes {
         debug {
@@ -41,7 +41,7 @@ android {
 }
 
 ext {
-    supportVersion = "27.1.1"
+    supportVersion = "28.0.0"
 }
 
 dependencies {
@@ -49,8 +49,8 @@ dependencies {
     implementation "com.android.support:gridlayout-v7:${supportVersion}"
     implementation "com.android.support:design:${supportVersion}"
     implementation "com.android.support:support-v4:${supportVersion}"
-    implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.29.jar')
-    //    implementation "cc.linkedme.deeplinks:link-page:1.0.24"
+//    implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.0.30.jar')
+        implementation "cc.linkedme.deeplinks:link-page:1.0.30"
     // 友盟分享
     implementation 'com.umeng.sdk:common:1.5.0'
     implementation 'com.umeng.sdk:share-core:6.9.2'
