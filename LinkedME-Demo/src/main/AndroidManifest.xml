@@ -40,11 +40,6 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
 
-        <!-- LinkedME官网注册应用后,从"设置"页面获取该Key -->
-        <meta-data
-                android:name="linkedme.sdk.key"
-                android:value="7e289a2484f4368dbafbd1e5c7d06903"/>
-
         <!-- 启动页面 -->
         <activity
                 android:name=".SplashActivity"
