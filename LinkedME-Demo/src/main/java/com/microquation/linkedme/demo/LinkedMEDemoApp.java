@@ -49,7 +49,7 @@ public class LinkedMEDemoApp extends Application {
         Log.i("LinkedME", "onCreate: LinkedMEDemoApp............");
 
         // 初始化SDK
-        LinkedME.getInstance(this);
+        LinkedME.getInstance(this, "7e289a2484f4368dbafbd1e5c7d06903");
 
         if (BuildConfig.DEBUG) {
             //设置debug模式下打印LinkedME日志
