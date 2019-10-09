@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.microquation.linkedme.android.callback.LMLinkCreateListener;
 import com.microquation.linkedme.android.indexing.LMUniversalObject;
-import com.microquation.linkedme.android.referral.LMError;
+import com.microquation.linkedme.android.log.LMErrorCode;
 import com.microquation.linkedme.android.util.LinkProperties;
 
 /**
@@ -123,7 +123,7 @@ public class DemoActivity extends BaseActivity {
                 // Async Link creation example
                 universalObject.generateShortUrl(DemoActivity.this, properties, new LMLinkCreateListener() {
                     @Override
-                    public void onLinkCreate(String url, LMError error) {
+                    public void onLinkCreate(String url, LMErrorCode error) {
                         if (error == null) {
                             //url为生成的深度链接
                             demo_edit.setText(url);
