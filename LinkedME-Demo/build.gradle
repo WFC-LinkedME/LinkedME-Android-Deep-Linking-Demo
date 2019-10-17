@@ -20,8 +20,8 @@ android {
         applicationId "com.microquation.linkedme"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 36
-        versionName "1.1.4"
+        versionCode 37
+        versionName "1.1.5"
     }
     buildTypes {
         debug {
@@ -38,6 +38,7 @@ android {
         abortOnError false
     }
 
+    
 }
 
 ext {
@@ -49,8 +50,8 @@ dependencies {
     implementation "com.android.support:gridlayout-v7:${supportVersion}"
     implementation "com.android.support:design:${supportVersion}"
     implementation "com.android.support:support-v4:${supportVersion}"
-        implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.1.4.jar')
-//    implementation 'cc.linkedme.deeplinks:link-page:1.1.4'
+        implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.1.5.jar')
+//    implementation 'cc.linkedme.deeplinks:link-page:1.1.5'
     // 友盟分享
     implementation 'com.umeng.sdk:common:1.5.0'
     implementation 'com.umeng.sdk:share-core:6.9.2'

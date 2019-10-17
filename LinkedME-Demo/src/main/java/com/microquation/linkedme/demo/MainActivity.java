@@ -76,20 +76,10 @@ public class MainActivity extends BaseActivity {
         // TODO: 5/9/18 lipeng 无条件限制-start
 //        LinkedME.getInstance().setImmediate(true);
         // TODO: 5/9/18 lipeng 无条件限制-end
+
         //此处针对跳转是否受用户登录限制的情况
-        if (SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
-            //已登录用户可以跳转到分享页面
-            Toast.makeText(this, "onResume 跳转至详情页", Toast.LENGTH_SHORT).show();
-            LinkedME.getInstance().setImmediate(true);
-        } else {
-            //未登录用户不跳转到分享页面，而是跳转到登录页面，登录成功后跳转到分享页面
-            //未登录用户不自动跳转
-            LinkedME.getInstance().setImmediate(false);
-            Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
-            loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(loginIntent);
-            finish();
-        }
+        Intent intentService = new Intent(this, LoginRestrictService.class);
+        startService(intentService);
     }
 
     @Override
@@ -181,7 +171,9 @@ public class MainActivity extends BaseActivity {
                         if (SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
                             SPHelper.getInstance(getApplicationContext()).setUserLogin(false);
                             // 此处针对跳转是否受用户登录限制的情况，在此处重置为false，防止用户点击退出后退到后台再唤起APP时跳转到详情页
-                            LinkedME.getInstance().setImmediate(false);
+                            if (LinkedME.getInstance() != null) {
+                                LinkedME.getInstance().setImmediate(false);
+                            }
                             Toast.makeText(MainActivity.this, "退出成功！", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(MainActivity.this, "未登录，无需退出！", Toast.LENGTH_SHORT).show();
