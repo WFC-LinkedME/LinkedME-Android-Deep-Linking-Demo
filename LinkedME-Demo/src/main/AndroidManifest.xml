@@ -153,6 +153,11 @@
                 android:screenOrientation="portrait">
         </activity>
 
+        <service
+                android:name=".LoginRestrictService"
+                android:exported="false">
+        </service>
+
     </application>
 
 </manifest>

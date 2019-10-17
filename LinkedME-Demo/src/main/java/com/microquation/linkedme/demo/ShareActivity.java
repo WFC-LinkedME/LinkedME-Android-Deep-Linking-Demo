@@ -210,9 +210,7 @@ public class ShareActivity extends BaseActivity {
                 }
             }
         });
-        return super.
-
-                onCreateOptionsMenu(menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     /**

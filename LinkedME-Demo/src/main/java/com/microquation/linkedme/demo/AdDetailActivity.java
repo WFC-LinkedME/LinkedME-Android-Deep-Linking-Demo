@@ -1,5 +1,6 @@
 package com.microquation.linkedme.demo;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,11 +15,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.microquation.linkedme.android.LinkedME;
-
 /**
- * 广告详情页面
- * Created by LinkedME06 on 13/02/2017.
+ * 广告详情页面 Created by LinkedME06 on 13/02/2017.
  */
 
 public class AdDetailActivity extends BaseActivity {
@@ -90,7 +88,8 @@ public class AdDetailActivity extends BaseActivity {
     private void closeActivity() {
         // TODO: 27/02/2017 广告演示：广告详情展示完毕后，需要在必经的方法中调用该方法执行深度链接跳转
         //用户点击广告详情返回后，一定要执行跳转到详情页
-        LinkedME.getInstance().setImmediate(true);
+        Intent intentService = new Intent(this, LoginRestrictService.class);
+        startService(intentService);
         finish();
     }
 }

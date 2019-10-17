@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 /**
  * 欢迎页面 Created by LinkedME06 on 16/11/23.
  */
@@ -26,6 +27,10 @@ public class WelcomeActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_activity);
+
+        // 欢迎页面也是广告页面
+        LinkedMEDemoApp.getInstance().setShowedAd(true);
+
         startCountDownTime(5);
         Button open_demo = (Button) findViewById(R.id.open_demo);
         Button show_ad = (Button) findViewById(R.id.show_ad);

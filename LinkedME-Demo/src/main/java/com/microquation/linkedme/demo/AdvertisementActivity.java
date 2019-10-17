@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.microquation.linkedme.android.LinkedME;
-
 /**
  * Created by LinkedME06 on 24/02/2017.
  */
@@ -27,9 +25,6 @@ public class AdvertisementActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.advertisement);
-
-        //此处移除跳转限制，在展示广告后需要调用LinkedME.getInstance().setImmediate(true);来执行跳转
-        LinkedME.getInstance().removeJumpConstraint();
 
         startCountDownTime(5);
         Button show_ad = (Button) findViewById(R.id.show_ad);
@@ -92,7 +87,8 @@ public class AdvertisementActivity extends BaseActivity {
         }
         // 广告显示完后执行跳转到详情页面
         // 但是如果需要用户登录才可以跳转到详情页，此处需要做限制，不让其跳转，当用户登录后再调用setImmediate(true)方法进行跳转
-        LinkedME.getInstance().setImmediate(true);
+        Intent intentService = new Intent(this, LoginRestrictService.class);
+        startService(intentService);
         finish();
     }
 }

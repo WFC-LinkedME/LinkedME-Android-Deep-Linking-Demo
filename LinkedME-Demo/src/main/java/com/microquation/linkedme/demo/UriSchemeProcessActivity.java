@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+
 /**
  * UriSchemeProcessActivity继承AppCompatActivity或者Activity，不继承基类
  */
@@ -24,6 +25,12 @@ public class UriSchemeProcessActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         // TODO: 5/9/18 lipeng 无条件限制-start
@@ -34,9 +41,8 @@ public class UriSchemeProcessActivity extends AppCompatActivity {
         // TODO: 5/9/18 lipeng 无条件限制-end
 
         // 防止唤起后台App后一直停留在该页面
-//        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
-            finish();
-//        }
+        // ！！！ 请不要在 onCreate() 及 onStart() 方法中销毁 activity
+        finish();
     }
 
     @Override
@@ -44,5 +50,4 @@ public class UriSchemeProcessActivity extends AppCompatActivity {
         // 请重写改方法并且设置该Activity的launchmode为singleTask
         setIntent(intent);
     }
-
 }

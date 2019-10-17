@@ -66,7 +66,6 @@ public class DemoActivity extends BaseActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
         demo_open_button = (AppCompatButton) findViewById(R.id.demo_open_button);
         demo_link_button = (ImageButton) findViewById(R.id.demo_link_button);
         demo_edit = (AppCompatEditText) findViewById(R.id.demo_edit);

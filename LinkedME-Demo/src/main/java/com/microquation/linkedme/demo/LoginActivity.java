@@ -6,8 +6,6 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
-import com.microquation.linkedme.android.LinkedME;
-
 /**
  * 用户登录页面，该页面针对跳转受用户登录限制的情况
  * Created by LinkedME06 on 16/11/23.
@@ -25,8 +23,6 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View v) {
                 // 此处设置广告已显示，防止用户登录后又展示广告页面，用户第一次登录不应展示广告
                 LinkedMEDemoApp.getInstance().setShowedAd(true);
-                // 登录成功后，移除跳转限制
-                LinkedME.getInstance().removeJumpConstraint();
                 SPHelper.getInstance(getApplicationContext()).setUserLogin(true);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
