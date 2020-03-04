@@ -96,14 +96,14 @@ public class DemoActivity extends BaseActivity {
                 //  提示：虽然客户端可自行创建深度链接并分享，但是web端也需要对分享链接进行处理才可使用深度链接，
                 //  需要将分享链接中的深度链接截取出来，并作为“打开app”按钮的跳转链接(因此，建议使用js sdk创建深度链接)。
                 //  例如：
-                //     原有的分享链接为：https://www.linkedme.cc/h5/partner
-                //     追加深度链接的分享链接为：https://www.linkedme.cc/h5/partner?linkedme=https://lkme.cc/AfC/CeG9o5VH8
+                //     原有的分享链接为：https://guide.lkme.cc/h5/partner
+                //     追加深度链接的分享链接为：https://guide.lkme.cc/h5/partner?linkedme=https://lkme.cc/AfC/CeG9o5VH8
                 //     web端需要将深度链接https://lkme.cc/AfC/CeG9o5VH8取出并作为“打开app”按钮的跳转链接。
 
                 //深度链接属性设置
                 final LinkProperties properties = new LinkProperties();
                 //渠道
-                properties.setChannel("");  //微信、微博、QQ
+                properties.setChannel("微信");  //微信、微博、QQ
                 //功能
                 properties.setFeature("Share");
                 //标签
@@ -112,7 +112,9 @@ public class DemoActivity extends BaseActivity {
                 //阶段
                 properties.setStage("Live");
                 //设置该h5_url目的是为了iOS点击右上角lkme.cc时跳转的地址，一般设置为当前分享页面的地址
-                properties.setH5Url("https://linkedme.cc/h5/feature");
+                properties.setH5Url("https://guide.lkme.cc/h5/feature");
+                // 是否启用下载引导页
+                properties.enableH5Guide(true);
                 //自定义参数,用于在深度链接跳转后获取该数据
                 properties.addControlParameter("LinkedME", "Demo");
                 properties.addControlParameter("View", "Demo");

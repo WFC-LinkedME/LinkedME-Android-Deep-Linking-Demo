@@ -46,7 +46,7 @@ public class ShareActivity extends BaseActivity {
     /**
      * 集成方原有分享的H5页面链接
      */
-    private static final String H5_URL = "https://www.linkedme.cc/h5/";
+    private static final String H5_URL = "https://guide.lkme.cc/h5/";
 
     private String loadUrl;
     private String title;
@@ -181,7 +181,7 @@ public class ShareActivity extends BaseActivity {
 //                            //https://www.lkme.cc/AfC/idFsW02l7
 //                            @Override
 //                            public void onLinkCreate(final String url, LMError error) {
-                        final UMImage image = new UMImage(ShareActivity.this, "https://www.linkedme.cc/homepage2.jpg");
+                        final UMImage image = new UMImage(ShareActivity.this, "https://static.lkme.cc/app/homepage.jpg");
                         /**友盟分享化分享，分享的链接不单单是H5链接，而是携带深度链接的H5链接*/
                         new ShareAction(ShareActivity.this).setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.SINA, SHARE_MEDIA.SMS, SHARE_MEDIA.EMAIL)
                                 .setShareboardclickCallback(new ShareBoardlistener() {
