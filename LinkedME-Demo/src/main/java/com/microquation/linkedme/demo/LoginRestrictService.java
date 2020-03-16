@@ -24,7 +24,7 @@ public class LoginRestrictService extends Service {
                     LinkedME.getInstance().setImmediate(false);
                 }
                 Intent loginIntent = new Intent(this, LoginActivity.class);
-                loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(loginIntent);
             }
         } else {
