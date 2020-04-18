@@ -4,6 +4,9 @@
 # Java class files
 *.class
 
+#icloud
+*.icloud
+
 # Generated files
 bin/
 gen/
