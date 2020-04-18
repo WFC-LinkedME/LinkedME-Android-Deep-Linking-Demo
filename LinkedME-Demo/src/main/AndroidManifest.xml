@@ -44,7 +44,7 @@
         <activity
                 android:name=".SplashActivity"
                 android:configChanges="keyboardHidden|orientation"
-                android:screenOrientation="portrait"
+                android:screenOrientation="unspecified"
                 android:exported="true"
                 android:theme="@style/AppTheme.Launcher">
             <intent-filter>
@@ -58,29 +58,29 @@
         <activity
                 android:name=".MiddleActivity"
                 android:noHistory="true"
-                android:screenOrientation="portrait">
+                android:screenOrientation="unspecified">
         </activity>
         <activity
                 android:name=".WelcomeActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="unspecified">
         </activity>
         <activity
                 android:name=".LoginActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait">
+                android:screenOrientation="unspecified">
         </activity>
         <activity
                 android:name=".MainActivity"
                 android:configChanges="orientation|keyboard"
                 android:label="@string/app_name"
                 android:launchMode="singleTask"
-                android:screenOrientation="portrait">
+                android:screenOrientation="unspecified">
         </activity>
         <activity
                 android:name=".UriSchemeProcessActivity"
                 android:launchMode="singleTask"
                 android:noHistory="true"
-                android:screenOrientation="portrait"
+                android:screenOrientation="unspecified"
                 android:theme="@style/AppTheme.Launcher">
 
             <!-- URI Scheme方式 在dashboard配置中,请保持与ios的URI Scheme相同 -->
@@ -120,7 +120,7 @@
         <!-- DEMO页面 -->
         <activity
                 android:name=".DemoActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="unspecified">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".MainActivity"/>
@@ -135,7 +135,7 @@
         <!-- 分享页面 -->
         <activity
                 android:name=".ShareActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="unspecified">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".MainActivity"/>
@@ -145,12 +145,12 @@
         <activity
                 android:name=".AdDetailActivity"
                 android:launchMode="singleTop"
-                android:screenOrientation="portrait">
+                android:screenOrientation="unspecified">
         </activity>
         <!-- 广告详情页面 -->
         <activity
                 android:name=".AdvertisementActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="unspecified">
         </activity>
 
         <service
