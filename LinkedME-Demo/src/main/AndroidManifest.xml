@@ -65,6 +65,10 @@
                 android:screenOrientation="unspecified">
         </activity>
         <activity
+                android:name=".PrivacyActivity"
+                android:screenOrientation="unspecified">
+        </activity>
+        <activity
                 android:name=".LoginActivity"
                 android:launchMode="singleTop"
                 android:screenOrientation="unspecified">

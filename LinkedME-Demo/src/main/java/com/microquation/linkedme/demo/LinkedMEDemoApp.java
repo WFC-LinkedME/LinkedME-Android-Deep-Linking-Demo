@@ -60,6 +60,8 @@ public class LinkedMEDemoApp extends Application {
         // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onResume()方法中，
         // 重新设置为true，否则将禁止开启自动跳转指定页面功能
         LinkedME.getInstance().setImmediate(false);
+        // 根据用户是否同意了隐私协议动态设置该状态
+        LinkedME.getInstance().setPrivacyStatus(SPHelper.getInstance(getApplicationContext()).getPrivacy());
 
         //设置处理跳转逻辑的中转页
         LinkedME.getInstance().setHandleActivity(MiddleActivity.class.getName());

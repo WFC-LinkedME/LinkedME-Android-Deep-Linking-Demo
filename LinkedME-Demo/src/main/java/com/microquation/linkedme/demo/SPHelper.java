@@ -40,4 +40,13 @@ public class SPHelper {
     public boolean getUserLogin(){
        return sharedPreferences.getBoolean("isUserLogin", false);
     }
+
+
+    public void setPrivacy(boolean privacy) {
+        prefsEditor.putBoolean("privacy", privacy).commit();
+    }
+
+    public boolean getPrivacy() {
+        return sharedPreferences.getBoolean("privacy", false);
+    }
 }
