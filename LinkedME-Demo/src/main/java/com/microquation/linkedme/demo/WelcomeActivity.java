@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.microquation.linkedme.android.LinkedME;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
@@ -171,6 +173,7 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 SPHelper.getInstance(getApplicationContext()).setPrivacy(true);
+                LinkedME.getInstance().setPrivacyStatus(true);
                 dialog.dismiss();
                 Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                 startActivity(intent);
