@@ -58,5 +58,5 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation files('libs/umeng-share-email-6.9.2.jar')
     implementation files('libs/umeng-share-sms-6.9.2.jar')
-    implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.1.28.jar')
+    implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.1.29.jar')
 }
