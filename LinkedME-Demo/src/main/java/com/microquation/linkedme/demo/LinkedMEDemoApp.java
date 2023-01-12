@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.microquation.linkedme.android.LinkedME;
-import com.umeng.commonsdk.UMConfigure;
-import com.umeng.socialize.PlatformConfig;
 
 /**
  * <p>在自定义的Application的onCreate()方法中调用以下方法</p>
@@ -56,6 +54,10 @@ public class LinkedMEDemoApp extends Application {
             LinkedME.getInstance().setDebug();
         }
 
+        LinkedME.getInstance().disableAppList();
+        LinkedME.getInstance().disableSdCard();
+        LinkedME.getInstance().disableWifiBssid();
+        LinkedME.getInstance().setClipboardSwitch(false);
         // 设置是否开启自动跳转指定页面，默认为true
         // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onResume()方法中，
         // 重新设置为true，否则将禁止开启自动跳转指定页面功能
@@ -68,14 +70,14 @@ public class LinkedMEDemoApp extends Application {
 
 
         //友盟社会化分享
-        {
-            UMConfigure.init(this, "560fce13e0f55a730c003844", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
-
-            //微信
-            PlatformConfig.setWeixin("wx6fc47eae6872f04c", "d4624c36b6795d1d99dcf0547af5443d");
-            //新浪微博
-            PlatformConfig.setSinaWeibo("2929366075", "b84a93ea3d2b89f04559eddb5663c809", "http://sns.whalecloud.com");
-        }
+//        {
+//            UMConfigure.init(this, "560fce13e0f55a730c003844", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
+//
+//            //微信
+//            PlatformConfig.setWeixin("wx6fc47eae6872f04c", "d4624c36b6795d1d99dcf0547af5443d");
+//            //新浪微博
+//            PlatformConfig.setSinaWeibo("2929366075", "b84a93ea3d2b89f04559eddb5663c809", "http://sns.whalecloud.com");
+//        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             CustomActivityLifeCycleObserver activityLifeCycleObserver = new CustomActivityLifeCycleObserver();
             unregisterActivityLifecycleCallbacks(activityLifeCycleObserver);

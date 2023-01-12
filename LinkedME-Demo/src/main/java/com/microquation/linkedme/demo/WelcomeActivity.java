@@ -124,29 +124,14 @@ public class WelcomeActivity extends BaseActivity {
 
     private void showPrivacy() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("温馨提示");
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append("服务协议和隐私政策" +
-                "请你务必审慎阅读、充分理解\"服务协议\"和\"隐私政策\"各条款," +
-                "包括但不限于:为了向你提供深度链接、内容分享等服务,我们需要收集你的设备信息、操作日志等个人信息。" +
-                "你可以在\"系统设置\"中查看、变更、删除个人信息并管理你的授权，" +
-                "你可阅读《服务协议》和《隐私政策》 了解详细信息。如你同意,请点\"同意\"开始接受我们的服务。");
+        spannableStringBuilder.append("我们根据最新的监管要求更新了《隐私政策》，特向您说明如下：\n" +
+                "1.为了向您提供基本的功能，我们会收集、使用必要的信息；\n" +
+                "2.基于您的明示授权，我们可能会获取您的设备号信息：IMEI、IMSI、MAC地址、AndroidID等信息（以保障深链功能正常），读取剪切板内容（提高深链场景还原率），您有权拒绝或取消授权；\n" +
+                "3.我们会采取业界先进的安全措施保护您的信息安全；\n" +
+                "4.未经您同意，我们不会从第三方获取、共享或向其提供您的信息；");
         ClickableSpan privacyZeroClickableSpan = new ClickableSpan() {
-            @Override
-            public void onClick(View widget) {
-                Intent intent = new Intent(WelcomeActivity.this, PrivacyActivity.class);
-                intent.putExtra("type", 0);
-                startActivity(intent);
-            }
-
-            //去除连接下划线
-            @Override
-            public void updateDrawState(TextPaint textPaint) {
-                textPaint.setColor(ContextCompat.getColor(WelcomeActivity.this, R.color.color_content_green));
-                textPaint.setUnderlineText(false);
-            }
-        };
-        spannableStringBuilder.setSpan(privacyZeroClickableSpan, 123, 129, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        ClickableSpan privacyOneClickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
                 Intent intent = new Intent(WelcomeActivity.this, PrivacyActivity.class);
@@ -161,7 +146,23 @@ public class WelcomeActivity extends BaseActivity {
                 textPaint.setUnderlineText(false);
             }
         };
-        spannableStringBuilder.setSpan(privacyOneClickableSpan, 130, 136, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableStringBuilder.setSpan(privacyZeroClickableSpan, 14, 20, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        ClickableSpan privacyOneClickableSpan = new ClickableSpan() {
+//            @Override
+//            public void onClick(View widget) {
+//                Intent intent = new Intent(WelcomeActivity.this, PrivacyActivity.class);
+//                intent.putExtra("type", 1);
+//                startActivity(intent);
+//            }
+//
+//            //去除连接下划线
+//            @Override
+//            public void updateDrawState(TextPaint textPaint) {
+//                textPaint.setColor(ContextCompat.getColor(WelcomeActivity.this, R.color.color_content_green));
+//                textPaint.setUnderlineText(false);
+//            }
+//        };
+//        spannableStringBuilder.setSpan(privacyOneClickableSpan, 130, 136, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         TextView textView = new TextView(WelcomeActivity.this);
         textView.setText(spannableStringBuilder);

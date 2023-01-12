@@ -17,15 +17,6 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.umeng.socialize.ShareAction;
-import com.umeng.socialize.UMShareAPI;
-import com.umeng.socialize.UMShareListener;
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.media.UMWeb;
-import com.umeng.socialize.shareboard.SnsPlatform;
-import com.umeng.socialize.utils.ShareBoardlistener;
-
 /**
  * <p>分享页面</p>
  *
@@ -57,35 +48,35 @@ public class ShareActivity extends BaseActivity {
 
     private WebView webView;
     private ProgressBar loading;
-    /**
-     * 友盟分享的方法
-     */
-    private UMShareListener umShareListener = new UMShareListener() {
-        @Override
-        public void onStart(SHARE_MEDIA share_media) {
-
-        }
-
-        @Override
-        public void onResult(SHARE_MEDIA platform) {
-            Log.d("plat", "platform" + platform);
-            if (platform.name().equals("WEIXIN_FAVORITE")) {
-                Toast.makeText(ShareActivity.this, platform + " 收藏成功啦", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(ShareActivity.this, platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        @Override
-        public void onError(SHARE_MEDIA platform, Throwable t) {
-            Toast.makeText(ShareActivity.this, platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onCancel(SHARE_MEDIA platform) {
-            Toast.makeText(ShareActivity.this, platform + " 分享取消了", Toast.LENGTH_SHORT).show();
-        }
-    };
+//    /**
+//     * 友盟分享的方法
+//     */
+//    private UMShareListener umShareListener = new UMShareListener() {
+//        @Override
+//        public void onStart(SHARE_MEDIA share_media) {
+//
+//        }
+//
+//        @Override
+//        public void onResult(SHARE_MEDIA platform) {
+//            Log.d("plat", "platform" + platform);
+//            if (platform.name().equals("WEIXIN_FAVORITE")) {
+//                Toast.makeText(ShareActivity.this, platform + " 收藏成功啦", Toast.LENGTH_SHORT).show();
+//            } else {
+//                Toast.makeText(ShareActivity.this, platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//
+//        @Override
+//        public void onError(SHARE_MEDIA platform, Throwable t) {
+//            Toast.makeText(ShareActivity.this, platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
+//        }
+//
+//        @Override
+//        public void onCancel(SHARE_MEDIA platform) {
+//            Toast.makeText(ShareActivity.this, platform + " 分享取消了", Toast.LENGTH_SHORT).show();
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,29 +172,30 @@ public class ShareActivity extends BaseActivity {
 //                            //https://www.lkme.cc/AfC/idFsW02l7
 //                            @Override
 //                            public void onLinkCreate(final String url, LMError error) {
-                        final UMImage image = new UMImage(ShareActivity.this, "https://static.lkme.cc/app/homepage.jpg");
-                        /**友盟分享化分享，分享的链接不单单是H5链接，而是携带深度链接的H5链接*/
-                        new ShareAction(ShareActivity.this).setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.SINA, SHARE_MEDIA.SMS, SHARE_MEDIA.EMAIL)
-                                .setShareboardclickCallback(new ShareBoardlistener() {
-                                    @Override
-                                    public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA share_media) {
-
-                                        //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
-//                                        UMWeb web = new UMWeb(H5_URL + url_path + "?linkedme=" + url);
-                                        UMWeb web = new UMWeb(H5_URL + url_path);
-                                        web.setTitle("LinkedME" + title);//标题
-                                        web.setThumb(image);  //缩略图
-                                        web.setDescription(shareContent);//描述
-                                        //微信
-                                        new ShareAction(ShareActivity.this)
-                                                .setPlatform(share_media)
-                                                .withMedia(web)
-                                                .setCallback(umShareListener)
-                                                .share();
-                                    }
-                                }).open();
+//                        final UMImage image = new UMImage(ShareActivity.this, "https://static.lkme.cc/app/homepage.jpg");
+//                        /**友盟分享化分享，分享的链接不单单是H5链接，而是携带深度链接的H5链接*/
+//                        new ShareAction(ShareActivity.this).setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.SINA, SHARE_MEDIA.SMS, SHARE_MEDIA.EMAIL)
+//                                .setShareboardclickCallback(new ShareBoardlistener() {
+//                                    @Override
+//                                    public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA share_media) {
+//
+//                                        //拼接深度链接,客户端将生成的深度链接值拼接到链接后,web端需要截取该url链接并放置到"打开APP"按钮下
+////                                        UMWeb web = new UMWeb(H5_URL + url_path + "?linkedme=" + url);
+//                                        UMWeb web = new UMWeb(H5_URL + url_path);
+//                                        web.setTitle("LinkedME" + title);//标题
+//                                        web.setThumb(image);  //缩略图
+//                                        web.setDescription(shareContent);//描述
+//                                        //微信
+//                                        new ShareAction(ShareActivity.this)
+//                                                .setPlatform(share_media)
+//                                                .withMedia(web)
+//                                                .setCallback(umShareListener)
+//                                                .share();
+//                                    }
+//                                }).open();
 //                            }
 //                        });
+                        Toast.makeText(ShareActivity.this, "请自行处理分享逻辑", Toast.LENGTH_LONG).show();
                         return true;
                     default:
                         return false;
@@ -221,7 +213,7 @@ public class ShareActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         //attention to this below ,must add this
         //友盟社会化分享
-        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+//        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
         Log.d("result", "onActivityResult");
     }
 
