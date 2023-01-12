@@ -8,7 +8,6 @@ import android.webkit.WebViewClient;
 public class PrivacyActivity extends BaseActivity {
 
     private WebView webView;
-    private String loadUrl = "https://docs.linkedme.cc/web/#/63";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +15,7 @@ public class PrivacyActivity extends BaseActivity {
         setContentView(R.layout.activity_privacy);
         webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
-        if (getIntent().getIntExtra("type", 0) == 1) {
-            loadUrl = "https://docs.linkedme.cc/web/#/62";
-        }
+        String loadUrl = "https://docs.linkedme.cc/web/#/62";
         webView.loadUrl(loadUrl);
         webView.setWebViewClient(new WebViewClient() {
             @Override
