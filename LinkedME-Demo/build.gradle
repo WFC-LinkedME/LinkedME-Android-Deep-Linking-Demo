@@ -51,5 +51,5 @@ dependencies {
     implementation "com.android.support:design:${supportVersion}"
     implementation "com.android.support:support-v4:${supportVersion}"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.1.33.jar')
+    implementation files('libs/LinkedME-Android-Deep-Linking-SDK-V1.1.34.jar')
 }
