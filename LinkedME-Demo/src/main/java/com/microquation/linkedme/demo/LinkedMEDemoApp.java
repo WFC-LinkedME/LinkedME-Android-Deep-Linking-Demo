@@ -54,10 +54,11 @@ public class LinkedMEDemoApp extends Application {
             LinkedME.getInstance().setDebug();
         }
 
-        LinkedME.getInstance().disableAppList();
-        LinkedME.getInstance().disableSdCard();
-        LinkedME.getInstance().disableWifiBssid();
         LinkedME.getInstance().setClipboardSwitch(false);
+        LinkedME.getInstance().setClipboardDelay(300);
+        LinkedME.getInstance().disableAppList();
+        LinkedME.getInstance().disableWifiBssid();
+        LinkedME.getInstance().disableSdCard();
         // 设置是否开启自动跳转指定页面，默认为true
         // 若在此处设置为false，请务必在配置Uri scheme的Activity页面的onResume()方法中，
         // 重新设置为true，否则将禁止开启自动跳转指定页面功能

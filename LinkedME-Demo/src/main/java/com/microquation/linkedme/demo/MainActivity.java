@@ -158,26 +158,10 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.login:
-                        if (SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
-                            Toast.makeText(MainActivity.this, "已登录！", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                        return true;
-                    case R.id.logout:
-                        if (SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
-                            SPHelper.getInstance(getApplicationContext()).setUserLogin(false);
-                            // 此处针对跳转是否受用户登录限制的情况，在此处重置为false，防止用户点击退出后退到后台再唤起APP时跳转到详情页
-                            if (LinkedME.getInstance() != null) {
-                                LinkedME.getInstance().setImmediate(false);
-                            }
-                            Toast.makeText(MainActivity.this, "退出成功！", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(MainActivity.this, "未登录，无需退出！", Toast.LENGTH_SHORT).show();
-                        }
+                    case R.id.privacy:
+                        Intent intent = new Intent(MainActivity.this, PrivacyActivity.class);
+                        intent.putExtra("type", 1);
+                        startActivity(intent);
                         return true;
                     default:
                         return false;
@@ -186,11 +170,7 @@ public class MainActivity extends BaseActivity {
         });
 
         MenuInflater inflater = popup.getMenuInflater();
-        if (SPHelper.getInstance(getApplicationContext()).getUserLogin()) {
-            inflater.inflate(R.menu.menu_main_login, popup.getMenu());
-        } else {
-            inflater.inflate(R.menu.menu_main, popup.getMenu());
-        }
+        inflater.inflate(R.menu.menu_privacy, popup.getMenu());
         popup.show();
     }
 

@@ -59,8 +59,7 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent mainIntent = new Intent(WelcomeActivity.this, MainActivity.class);
-                Intent intent = new Intent(WelcomeActivity.this, AdDetailActivity.class);
-                Intent[] stackIntents = new Intent[]{mainIntent, intent};
+                Intent[] stackIntents = new Intent[]{mainIntent};
                 ContextCompat.startActivities(WelcomeActivity.this, stackIntents);
                 finish();
             }
